@@ -1,0 +1,28 @@
+<article>
+    <img class="listing-photo" [src]="eventData?.photo">
+    <section class="listing-description">
+        <h2 class="listing-heading">{{ eventData?.name }}</h2>
+        <p class="listing-location">{{ eventData?.city}}, {{ eventData?.state }}</p>
+    </section>
+    <section class="listing-features">
+        <h2 class="section-heading">About this</h2>
+        <ul>
+            <li>Units available: {{eventData?.availableUnits}}</li>
+            <li>Wifi: {{eventData?.wifi}}</li>
+            <li>Laudry: {{eventData?.laundry}}</li>
+        </ul>
+    </section>
+    <section class="listing-apply">
+        <h2 class="section-heading">Apply now to live</h2>
+        <form [formGroup]="applyForm" (submit)="submitApplication()">
+            <label for=first-name>First Name</label>
+            <input type="text" id="first-name" formControlName="firstName">
+            <label for=last-name>Last Name</label>
+            <input type="text" id="last-name" formControlName="lastName">
+            <label for=email>Email</label>
+            <input type="email" id="email" formControlName="email">
+
+            <button type="submit" class="primary">Apply now</button>
+        </form>
+    </section>
+</article>
