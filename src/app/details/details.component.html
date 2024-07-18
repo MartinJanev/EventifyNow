@@ -2,14 +2,16 @@
     <img class="listing-photo" [src]="eventData?.photo">
     <section class="listing-description">
         <h2 class="listing-heading">{{ eventData?.name }}</h2>
-        <p class="listing-location">{{ eventData?.city}}, {{ eventData?.state }}</p>
+        <p class="listing-location">{{ eventData?.city}}, {{ eventData?.country }}</p>
     </section>
     <section class="listing-features">
         <h2 class="section-heading">About this</h2>
         <ul>
-            <li>Units available: {{eventData?.availableUnits}}</li>
-            <li>Wifi: {{eventData?.wifi}}</li>
-            <li>Laudry: {{eventData?.laundry}}</li>
+            <li>Start: {{eventData?.startDate}}</li>
+            <li>End: {{eventData?.endDate}}</li>
+            <li>Participants: {{eventData?.participants}}</li>
+            <li>By: {{eventData?.organizer}}</li>
+            <li>Price: {{eventData?.price}} </li>
         </ul>
     </section>
     <section class="listing-apply">

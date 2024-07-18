@@ -1,10 +1,11 @@
 
 .results {
+  padding: 0 7.7rem;
   display: grid;
-  column-gap: 14px;
-  row-gap: 14px;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 400px));
-  margin-top: 50px;
+  column-gap: 10px;
+  row-gap: 20px;
+  grid-template-columns: repeat(4, minmax(350px, 350px));
+  margin-top: 40px;
   justify-content: space-around;
 }
 
@@ -25,17 +26,44 @@ button {
   border-radius: 8px;
 }
 
-@media (min-width: 500px) and (max-width: 768px) {
+@media (max-width: 349px) {
   .results {
-      grid-template-columns: repeat(2, 1fr);
-  }
-  input[type="text"] {
-      width: 70%;
+      grid-template-columns: 1fr;
   }   
 }
 
-@media (max-width: 499px) {
+@media (min-width: 350px) and (max-width: 799px) {
   .results {
-      grid-template-columns: 1fr;
-  }    
+      grid-template-columns: repeat(1, 1fr);
+      padding: 1rem;
+  }
+  input[type="text"] {
+      width: 70%;
+  }
+   
 }
+
+@media (min-width: 800px) and (max-width: 1199px) {
+  .results {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 1rem;
+  }
+  input[type="text"] {
+      width: 70%;
+  }
+   
+}
+
+@media (min-width: 1200px) and (max-width: 1500px) {
+  .results {
+    padding: 2rem;
+      grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1500px) and (max-width: 1700px) {
+  .results {
+      padding: 2rem;
+      grid-template-columns: repeat(4, 1fr);
+  }
+}
+

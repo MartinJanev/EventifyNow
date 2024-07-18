@@ -1,5 +1,5 @@
 .listing {
-  background: var(--accent-color);
+  background: var(--card-color);
   border-radius: 30px;
   padding-bottom: 30px;
 }

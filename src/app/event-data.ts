@@ -1,10 +1,14 @@
 export interface Eventdata {
     id: number;
     name: string;
-    city: string;
-    state: string;
     photo: string;
-    availableUnits: number;
-    wifi: boolean;
-    laundry: boolean;
+    startDate: Date;
+    endDate: Date;
+    city: string;
+    country: string;
+    participants: number;
+    description: string;
+    category: string;
+    organizer: string; 
+    price: number;
 }

@@ -1,6 +1,7 @@
 :host {
   --content-padding: 10px;
 }
+
 header {
   display: block;
   height: 60px;
@@ -9,18 +10,24 @@ header {
 }
 .content {
   padding: var(--content-padding);
+
 }
 
 
 nav,footer,.footer-info{
+  background-color: var(--primary-color);
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center; 
 
 }
 
+
 ul{
   display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
 }
 
 li{
@@ -29,12 +36,18 @@ li{
 }
 
 .logo-icon{
-  padding: 15px 20px;
-  border: 1px solid #ccc;
+  padding: 12px;
+  border: 2px solid white;
   border-radius: 20%;
+  background-color: white;
 }
 
-nav a, footer a{
+nav{
+  height: 7.5vh;
+
+}
+
+nav a{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,15 +55,42 @@ nav a, footer a{
   height: 100%;
   text-decoration: none;
   color: var(--primary-color);
+  font-weight: 700;
+}
+
+footer a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.logo-search-module{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .list-module{
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
 }
 
+.list-module a{
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.list-module a:hover, footer a:hover{
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  transition: 0.4s ease-in-out;
+}
 .search-form{
   display: flex;
   justify-content: center;
@@ -65,19 +105,33 @@ nav a, footer a{
 }
 
 .search-bar input{
-  padding: 10px;
-  border: 1px solid #ccc;
+  padding: 0.6rem;
+  border: 1.5px solid #ccc;
+  width: 15rem;
+  font-size: 1rem;
 }
 
 .search-bar input:first-child{
   border-radius: 5px 0 0 5px;
 }
-.search-bar button{
-  padding: 10px;
+.search-button, .search-button-mid{
+  font-weight: 700;
+  padding: 0.6rem;
+  font-size: 1rem;
   border-radius: 0 5px 5px 0;
-  border: 1px solid #ccc;
-  background-color: #f8f9fa;
+  border: 1px solid var(--secondary-color);
+  background-color: var(--secondary-color);
+  color: white;
 }
+
+.search-button:hover{
+  background-color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  color: var(--primary-color);
+  transition: 0.2s ease-in;
+}
+
+
 .language{
   display: flex;
   justify-content: center;
@@ -90,16 +144,18 @@ nav a, footer a{
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 8px 15px;
+  padding: 3px 7px;
   margin: 0 5px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  background-color: var(--accent-color);
+  border-radius: 10px;
+  border: 1px solid white;
+  background-color: white;
+  cursor: pointer;
 }
 
-.lang-changer:last-child{
-  background-color: navy;
-  color: white;
+.lang-changer:hover{
+  background-color: var(--shadow-color);
+  border: 1px solid var(--shadow-color);
+  transition: 0.2s ease-in;
 }
 
 .lang-changer span{
@@ -112,16 +168,105 @@ footer, .footer-info{
 }
 
 footer{
-  background-color: var(--primary-color);
   color: white;
-  padding: 1.2rem 0;
-margin-top: 3rem;
-}
-footer > div, footer div > div{
-  margin: 0.3rem;
+  padding: 0.1rem 0 1rem 0;
+  margin-top: 3rem;
 }
 
+.footer-copy{
+  margin-top: 0.4rem;
+}
 .footer-links a, .footer-logo a{
   color: white;
   text-decoration: none;
+}
+.search-button-mid, .language-mid{
+  display: none;
+}
+
+
+
+@media (min-width: 1099px) and (max-width: 1199px) {
+  .search-form input{
+    width: 10rem
+  }
+  .search-button-mid{
+    display: none;
+  }
+}
+
+@media (min-width:850px) and (max-width: 1098px) {
+  .search-form input{
+    width: 8rem
+  }
+  .search-button-mid{
+    display: none;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 850px) {
+  .search-bar input, .search-button{
+    display: none;
+  }
+  .search-button-mid{
+    display: flex;
+    width: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--secondary-color);
+    color: white;
+    text-decoration: none;
+  }
+}
+
+@media (max-width: 699px){
+  .search-bar input,
+  .search-button, .search-button-mid {
+    display: none;
+  }
+
+  .search-anchor::before {
+    content: url("/assets/search.svg") / "";
+  }
+  .search-anchor {
+    width: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: white;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  .search-anchor:hover {
+    background-color: var(--accent-color);
+    transition: 0.2s ease-in;
+  }
+
+  
+  .language{
+    display: none;
+  }
+
+  .language-mid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: white;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 700;
+  }
+}
+
+@media (max-width: 499px){
+  .footer-links li{
+    padding: 15px 5px;
+  }
 }
