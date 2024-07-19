@@ -9,5 +9,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './welcome.component.css'
 })
 export class WelcomeComponent {
+  isSignedIn: boolean = false;
 
+  constructor() {
+    this.isSignedIn = false;
+  }
 }

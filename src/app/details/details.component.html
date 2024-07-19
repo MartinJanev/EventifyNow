@@ -1,30 +1,44 @@
 <article>
-    <img class="listing-photo" [src]="eventData?.photo">
-    <section class="listing-description">
-        <h2 class="listing-heading">{{ eventData?.name }}</h2>
-        <p class="listing-location">{{ eventData?.city}}, {{ eventData?.country }}</p>
+    <app-header></app-header>
+    <section class="go-back">
+        <a href="http://localhost:4200/">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15pt" height="15pt" fill="#0042B6" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+            </svg>
+        </a>
+        <h2> {{eventData?.name}} </h2>
     </section>
-    <section class="listing-features">
-        <h2 class="section-heading">About this</h2>
-        <ul>
-            <li>Start: {{eventData?.startDate}}</li>
-            <li>End: {{eventData?.endDate}}</li>
-            <li>Participants: {{eventData?.participants}}</li>
-            <li>By: {{eventData?.organizer}}</li>
-            <li>Price: {{eventData?.price}} </li>
-        </ul>
+    <section class="">
+        <section class="listing-description">
+            <a class="similar-event" href="#" >Find similar events in {{eventData?.city}}</a>      
+            <img class="listing-photo" [src]="eventData?.photo">
+            <div class="listing-blitz">
+                <h2 class="listing-heading">{{ eventData?.name }}</h2>
+                <p class="listing-location">{{ eventData?.city}}, {{ eventData?.country }}</p>
+            </div>
+        </section>
+        <section class="listing-features">
+            <h2 class="section-heading">About this</h2>
+            <ul>
+                <li>Start: {{eventData?.startDate | date: 'dd/MM/yyyy'}}</li>
+                <li>End: {{eventData?.endDate | date:'dd/MM/yyyy'}}</li>
+                <li>Participants: {{eventData?.participants}}</li>
+                <li>By: {{eventData?.organizer}}</li>
+                <li>Price: {{eventData?.price}} </li>
+            </ul>
+        </section>
+        <section class="listing-apply">
+            <h2 class="section-heading">Apply now to live</h2>
+            <form [formGroup]="applyForm" (submit)="submitApplication()">
+                <label for=first-name>First Name</label>
+                <input type="text" id="first-name" formControlName="firstName">
+                <label for=last-name>Last Name</label>
+                <input type="text" id="last-name" formControlName="lastName">
+                <label for=email>Email</label>
+                <input type="email" id="email" formControlName="email">
+                <button type="submit" class="primary">Apply now</button>
+            </form>
+        </section>
     </section>
-    <section class="listing-apply">
-        <h2 class="section-heading">Apply now to live</h2>
-        <form [formGroup]="applyForm" (submit)="submitApplication()">
-            <label for=first-name>First Name</label>
-            <input type="text" id="first-name" formControlName="firstName">
-            <label for=last-name>Last Name</label>
-            <input type="text" id="last-name" formControlName="lastName">
-            <label for=email>Email</label>
-            <input type="email" id="email" formControlName="email">
-
-            <button type="submit" class="primary">Apply now</button>
-        </form>
-    </section>
+    <app-footer></app-footer>
 </article>

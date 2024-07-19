@@ -1,0 +1,41 @@
+<nav class="header-info">
+    <div class="logo-search-module">
+      <div class="logo-icon"> 
+        <a href="http://localhost:4200/" class="logo" aria-hidden="true">EMS</a> <!-- Promena vo logo in the future-->
+      </div>
+      <div class="search-bar">
+        <form class="search-form">
+          <input type="text" placeholder="Search event" />
+          <input type="text" placeholder="City" />
+          <button class="search-button">Search</button>
+        </form>
+        <a href="#" id="search-anchor"></a>
+      </div>
+    </div>
+    <div class="list-module">
+      <ul>
+        <li><a routerLink="/login">Log In</a></li>
+        <li><a routerLink="/register">Sign Up</a></li>
+      </ul>
+      <a href="#" id="account-short"></a>
+      <div class="language">
+        <button class="lang-changer" routerLink="/" (click)="ChangeLanguage($event)">
+          <svg style="width: 1.5rem;" class="flag" xmlns="http://www.w3.org/2000/svg" viewBox="0 5 36 26">
+            <path fill="#00247D" d="M0 9.059V13h5.628zM4.664 31H13v-5.837zM23 25.164V31h8.335zM0 23v3.941L5.63 23zM31.337 5H23v5.837zM36 26.942V23h-5.631zM36 13V9.059L30.371 13zM13 5H4.664L13 10.837z"></path>
+            <path fill="#CF1B2B" d="M25.14 23l9.712 6.801c.471-.479.808-1.082.99-1.749L28.627 23H25.14zM13 23h-2.141l-9.711 6.8c.521.53 1.189.909 1.938 1.085L13 23.943V23zm10-10h2.141l9.711-6.8c-.521-.53-1.188-.909-1.937-1.085L23 12.057V13zm-12.141 0L1.148 6.2C.677 6.68.34 7.282.157 7.949L7.372 13h3.487z"></path>
+            <path fill="#EEE" d="M36 21H21v10h2v-5.836L31.335 31H32c1.117 0 2.126-.461 2.852-1.199L25.14 23h3.487l7.215 5.052c.093-.337.158-.686.158-1.052v-.058L30.369 23H36v-2zM0 21v2h5.63L0 26.941V27c0 1.091.439 2.078 1.148 2.8l9.711-6.8H13v.943l-9.914 6.941c.294.07.598.116.914.116h.664L13 25.163V31h2V21H0zM36 9c0-1.091-.439-2.078-1.148-2.8L25.141 13H23v-.943l9.915-6.942C32.62 5.046 32.316 5 32 5h-.663L23 10.837V5h-2v10h15v-2h-5.629L36 9.059V9zM13 5v5.837L4.664 5H4c-1.118 0-2.126.461-2.852 1.2l9.711 6.8H7.372L.157 7.949C.065 8.286 0 8.634 0 9v.059L5.628 13H0v2h15V5h-2z"></path>
+            <path fill="#CF1B2B" d="M21 15V5h-6v10H0v6h15v10h6V21h15v-6z"></path>
+          </svg>
+          <span>EN</span>
+        </button>
+        <button class="lang-changer" routerLink="/mk" (click)="ChangeLanguage($event)">
+          <svg style="width: 1.5rem;" class="flag" xmlns="http://www.w3.org/2000/svg" viewBox="0 5 36 26">
+            <path fill="#D20000" d="M34.618 5.998L32 6l-1.5-1H20l-2 1-2-1H5.5L4 6l-2.618-.002C.542 6.731 0 7.797 0 9v6.5L1 18l-1 2.5V27c0 1.203.542 2.269 1.382 3.002L4 30l1.5 1H16l2-1 2 1h10.5l1.5-1 2.618.002C35.458 29.269 36 28.203 36 27v-6.5L35 18l1-2.5V9c0-1.203-.542-2.269-1.382-3.002z"></path>
+            <path fill="#FFE600" d="M36 20.5v-5l-13.681 1.9c-.101-.724-.369-1.391-.779-1.957l13.091-9.455C33.928 5.373 33.008 5 32 5h-1.5l-9.663 9.691c-.659-.566-1.482-.932-2.392-1.026L20 5h-4l1.555 8.665c-.911.094-1.733.46-2.392 1.026L5.5 5H4c-1.008 0-1.928.373-2.632.988l13.092 9.455c-.41.566-.678 1.233-.779 1.957L0 15.5v5l13.681-1.9c.101.724.369 1.391.779 1.957L1.368 30.012l.001.001C2.072 30.628 2.993 31 4 31h1.5l9.663-9.691c.659.566 1.482.932 2.392 1.026L16 31h4l-1.555-8.665c.911-.094 1.733-.46 2.392-1.026L30.5 31H32c1.008 0 1.929-.373 2.632-.988L21.54 20.557c.41-.566.678-1.233.779-1.957L36 20.5z"></path>
+            <path fill="#D20000" d="M18 13.62c-2.415 0-4.38 1.965-4.38 4.38s1.965 4.38 4.38 4.38 4.38-1.965 4.38-4.38-1.965-4.38-4.38-4.38zm0 7.737c-1.851 0-3.357-1.506-3.357-3.357s1.506-3.357 3.357-3.357 3.357 1.506 3.357 3.357-1.506 3.357-3.357 3.357z"></path>
+          </svg>       
+          <span>MK</span>
+        </button>
+      </div>
+    </div>
+</nav>

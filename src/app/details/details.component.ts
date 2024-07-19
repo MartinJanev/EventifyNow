@@ -4,11 +4,13 @@ import { ActivatedRoute } from '@angular/router';
 import { ServiceEventService } from '../service-event.service';
 import { Eventdata } from '../event-data';
 import { FormControl,FormGroup,ReactiveFormsModule } from '@angular/forms';
+import { HeaderComponent } from "../header/header.component";
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, HeaderComponent, FooterComponent],
   templateUrl: './details.component.html',
   styleUrl: './details.component.css'
 })

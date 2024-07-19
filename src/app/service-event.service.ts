@@ -220,7 +220,7 @@ export class ServiceEventService {
     },
     {
       id: 15,
-      name: 'Obstacle Course Racing Skopje',
+      name: 'Obstacle Course Racing',
       city: 'Skopje',
       country: 'Macedonia',
       photo: '/assets/ocr-skopje.png',
@@ -229,7 +229,7 @@ export class ServiceEventService {
       participants: 500,
       description:'This race in Skopje for the fourth time in the country will unite runners for an unforgettable adventure. That is why we are honored to offer you real adrenaline, a test of your fitness and enjoyment of nature. Being on the starting line is sometimes a sufficient goal". It is with great pleasure that we announce OCR SKOPJE 2024! Jumping over vertical walls, climbing ropes, crawling through mud, carrying loads, spear shooting, running through shallow streams, steeps, adrenaline, fun, happiness, pain and pleasure are just some of the things you will experience at OCR SKOPJE 2024! The race will be in Skopje, the exact location is a secret! You will be notified on your email one month before the event. address! The location will be easily accessible, with the possibility of parking, toilets and places to store your equipment.',
       category: 'Running',
-      organizer: 'Association for sport games with obstacles - OTAKU Skopje',
+      organizer: 'OTAKU Skopje',
       price: 2000,
     },
     
