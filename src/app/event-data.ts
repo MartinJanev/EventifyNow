@@ -3,7 +3,9 @@ export interface Eventdata {
     name: string;
     photo: string;
     startDate: Date;
+    startTime: string;
     endDate: Date;
+    endTime: string;
     city: string;
     country: string;
     participants: number;
