@@ -1,11 +1,11 @@
 <a [routerLink]="['/details',eventData.id]" class="card">
     <section class="listing">
         <img class="listing-photo" [src]="eventData.photo"
-        alt="Image of {{eventData.name}}">
-        <h2 class="listing-heading"> {{eventData.name}} </h2>
-        <p class="listing-location"> {{eventData.city}}, {{eventData.country}}</p>
-        <p class="listing-date"> {{eventData.startDate | date:'EEEE, MMM dd'}} at: {{eventData.startTime}} </p>
-        <p class="listing-price"> Price: {{eventData.price}} den</p>
-        <p class="listing-organizator"> Organized by: {{eventData.organizer}}</p>
+        alt="Image of {{eventData.name}}" i18n-alt>
+        <h2 class="listing-heading" i18n> {{eventData.name}} </h2>
+        <p class="listing-location" i18n> {{eventData.city}}, {{eventData.country}}</p>
+        <p class="listing-date" i18n> {{eventData.startDate | date:'EEEE, MMM dd'}} at: {{eventData.startTime}} </p>
+        <p class="listing-price" i18n> Price: {{eventData.price === 0 ? 'Free' : eventData.price | currency:'USD':'symbol':'1.2-2'}}</p>
+        <p class="listing-organizator" i18n> Organized by: {{eventData.organizer}}</p>
     </section>
 </a>

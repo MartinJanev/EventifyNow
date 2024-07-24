@@ -10,34 +10,43 @@
     </section>
     <section class="listing">
         <section class="listing-description">
-            <a class="similar-event" href="#" >Find similar events in {{eventData?.city}}</a>      
-            <img class="listing-photo" [src]="eventData?.photo">
+            <a i18n class="similar-event" href="#" i18n>Find similar events in {{eventData?.city}}</a>      
+            <img class="listing-photo" [src]="eventData?.photo" alt="Image of {{eventData?.name}}" i18n-alt>
             <div class="listing-blitz">
                 <h2 class="listing-heading">{{ eventData?.name }}</h2>
                 <p class="listing-location">{{ eventData?.city}}, {{ eventData?.country }}</p>
             </div>
+            <div class="listing-organizer">
+                <p i18n>Organized by:</p>
+                <p>{{eventData?.organizer}}</p>
+            </div>
         </section>
         <section class="listing-element">
             <section class="listing-features">
-                <h2 class="section-heading">About this</h2>
-                <ul>
-                    <li>Start: {{eventData?.startDate | date: 'dd/MM/yyyy'}} at: {{eventData?.startTime}}</li>
-                    <li>End: {{eventData?.endDate | date:'dd/MM/yyyy'}}</li>
-                    <li>Participants: {{eventData?.participants}}</li>
-                    <li>By: {{eventData?.organizer}}</li>
-                    <li>Price: {{eventData?.price}} </li>
-                </ul>
+                <h2 class="section-heading" i18n>About this</h2>
+                <section class="event-card">
+                    <div class="event-cal">
+                        <p id="event-month">{{ eventData?.startDate | date: 'MMM' }}</p>
+                        <p id="event-day">{{ eventData?.startDate | date: 'dd' }}</p>
+                    </div>
+                    <div class="event-block">
+                        <p class="event-date">{{eventData?.startDate | date: 'EEEE, dd MMMM, yyyy'}}</p>
+                        <p class="event-time">{{eventData?.startTime}} - {{eventData?.endTime}}</p>
+                    </div>
+                </section>
+                    <p i18n>Participants: ~{{eventData?.participants}}</p>
+                    <p i18n>Price: {{eventData?.price === 0 ? 'Free' : eventData?.price | currency:'USD':'symbol':'1.2-2'}}</p>
             </section>
             <section class="listing-apply">
-                <h2 class="section-heading">Apply now to live</h2>
+                <h2 class="section-heading" i18n>Apply now to live</h2>
                 <form [formGroup]="applyForm" (submit)="submitApplication()">
-                    <label for=first-name>First Name</label>
+                    <label i18n for=first-name>First Name</label>
                     <input type="text" id="first-name" formControlName="firstName">
-                    <label for=last-name>Last Name</label>
+                    <label i18n for=last-name>Last Name</label>
                     <input type="text" id="last-name" formControlName="lastName">
-                    <label for=email>Email</label>
+                    <label i18n for=email>Email</label>
                     <input type="email" id="email" formControlName="email">
-                    <button type="submit" class="primary">Apply now</button>
+                    <button i18n type="submit" class="primary">Apply now</button>
                 </form>
             </section>
         </section>

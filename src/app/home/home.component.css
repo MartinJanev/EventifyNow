@@ -1,6 +1,6 @@
 
 .results {
-  padding: 0 7.7rem;
+  padding: 0 7rem;
   display: grid;
   column-gap: 10px;
   row-gap: 20px;
@@ -53,7 +53,7 @@ button {
   .results {
       grid-template-columns: repeat(2, 1fr);
       transition: 0.5s ease-in-out;
-      padding: 1rem;
+      padding: 0 4rem;
   }
   input[type="text"] {
       width: 70%;
@@ -63,17 +63,44 @@ button {
 
 @media (min-width: 1200px) and (max-width: 1500px) {
   .results {
-    padding: 2rem;
       grid-template-columns: repeat(3, 1fr);
       transition: 0.7s ease-in-out;
-
+      column-gap: 20px;
+      row-gap: 20px;
+      padding: 0 4rem;
   }
 }
-@media (min-width: 1500px) and (max-width: 1700px) {
+@media (min-width: 1500px) and (max-width: 1920px) {
+  .results {
+    padding: 0 7.7rem;
+    grid-template-columns: repeat(4, 1fr);
+      transition: 0.5s ease-in-out;
+      column-gap: 20px;
+      row-gap: 30px;
+  }
+}
+
+@media (min-width: 1921px) and (max-width: 2900px) {
   .results {
       padding: 2rem;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       transition: 0.5s ease-in-out;
+      column-gap: 30px;
+      row-gap: 40px;
   }
+}
+
+@media (min-width: 2901px) {
+  .results {
+      padding: 2rem;
+      grid-template-columns: repeat(6, 1fr);
+      transition: 0.5s ease-in-out;
+      column-gap: 40px;
+      row-gap: 50px;
+  }
+}
+
+.results{
+  padding-bottom: 3rem;
 }
 

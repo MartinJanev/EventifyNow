@@ -1,102 +1,3 @@
-.go-back{
-  display: flex;
-  align-items: center;
-  padding: 1rem 0 1rem 7rem;
-  border: 1px solid white;
-}
-
-.go-back a{
-  border: 1px solid var(--accent-color);
-  padding: 0.5rem 0.6rem;
-  margin: 0 1rem;
-  border-radius: 10px;
-  background-color: var(--accent-color);
-}
-
-.listing-description {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-
-.similar-event{
-  text-decoration: none;
-  font-size: 0.9rem;
-  padding: 0.7rem 1rem;
-  margin: 1rem;
-  border: 1px solid var(--secondary-color);
-  border-radius: 10px;
-  background-color: var(--secondary-color);
-  color: white;
-}
-
-.listing{
-  background-color:#e5e7eb;
-  display: flex;
-  flex-direction: row;
-  padding: 0 5rem 3rem 5rem;
-  justify-content: space-between;
-}
-
-
-.listing section{
-  width: 45%;
-}
-
-.listing-photo {
-  width: 75%;
-  border-radius: 30px;
-  border: 2px solid var(--accent-color);
-}
-
-.listing-blitz{
-  margin: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.listing-heading {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.listing-location::before {
-  content: url('/assets/location-pin.svg') / '';
-}
-
-.listing-location {
-  font-size: 1.8rem;
-  margin-bottom: 15px;
-}
-
-.listing-features > .section-heading {
-  color: var(--secondary-color);
-  font-size: 24pt;
-  margin-bottom: 15px;
-}
-
-.listing-features {
-  margin-bottom: 20px;
-}
-
-.listing-features li {
-  font-size: 14pt;
-}
-
-li {
-  list-style-type: none;
-}
-
-.listing-apply .section-heading {
-  font-size: 18pt;
-  margin-bottom: 15px;
-}
-
 label, input {
   display: block;
 }
@@ -118,3 +19,153 @@ input {
 }
 
 
+li {
+  list-style-type: none;
+}
+
+.go-back{
+  display: flex;
+  align-items: center;
+  padding: 1rem 0 1rem 7rem;
+  border: 1px solid white;
+}
+
+.go-back a{
+  border: 1px solid var(--accent-color);
+  padding: 0.5rem 0.6rem;
+  margin: 0 1rem;
+  border-radius: 10px;
+  background-color: var(--accent-color);
+}
+
+.listing-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.similar-event{
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.7rem 1rem;
+  margin: 1rem;
+  border: 1px solid var(--secondary-color);
+  border-radius: 10px;
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.listing{
+  background-color:#e5e7eb;
+  display: flex;
+  flex-direction: row;
+  padding: 0 5rem 3rem 5rem;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+
+.listing > section{
+  width: 45%;
+}
+
+.listing-photo {
+  width: 100%;
+  border-radius: 30px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.listing-blitz, .listing-organizer{
+  border: 2px solid white;
+  background-color: white;
+  padding: 0.5rem;
+  border-radius: 10px;
+  gap: 1rem;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  width: 100%;
+
+}
+
+.listing-blitz{
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.listing-organizer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.listing-heading {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.listing-location::before {
+  content: url('/assets/location-pin.svg') / '';
+}
+
+.listing-location {
+  font-size: 1.8rem;
+}
+
+.listing-features > .section-heading {
+  color: var(--secondary-color);
+  font-size: 24pt;
+  padding: 15px 0;
+}
+
+.listing-features {
+  margin-bottom: 20px;
+}
+
+.listing-features li {
+  font-size: 14pt;
+}
+
+.listing-apply .section-heading {
+  font-size: 18pt;
+  margin-bottom: 15px;
+}
+
+
+.event-card{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem 0;
+  border-radius: 10px;
+  gap: 1rem;
+}
+
+.event-cal{
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+}
+
+.event-cal p{
+  margin: 0;
+  font-weight: unset;
+  padding: 0.25rem 0.5rem;
+  text-align: center;
+  color: white;
+
+}
+
+#event-month{
+  background-color:var(--primary-color);
+  border-radius: 5px 5px 0 0;
+  font-size: 0.8rem;
+}
+
+#event-day{
+  border-radius: 0 0 5px 5px;
+  color: black;
+  font-size: 1.4rem;
+}

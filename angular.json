@@ -4,6 +4,12 @@
   "newProjectRoot": "projects",
   "projects": {
     "event-management-system": {
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "mk-MK": "src/locale/messages.mk.xlf"
+      }
+      },
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,6 +19,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "localize":[
+              "mk-MK"
+            ],
             "outputPath": "dist/event-management-system",
             "index": "src/index.html",
             "browser": "src/main.ts",
