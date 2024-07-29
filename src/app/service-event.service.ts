@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Eventdata } from './event-data';
-import { formatCurrency } from '@angular/common';
+import { User } from './user';
 
 @Injectable({
   providedIn: 'root'
@@ -300,6 +300,21 @@ export class ServiceEventService {
    
   ];
 
+  protected userList: User[] = [
+    {
+      username: 'user1',
+      password: '1234',
+      email: 'johndoe@gmail.com',
+      fullname: 'John Doe'
+    },
+    {
+      username: 'user2',
+      password: '12345',
+      email: 'janedoe@gmail.com',
+      fullname: 'Jane Doe'
+    }
+  ];
+
 
 
   constructor() { }
@@ -315,5 +330,13 @@ export class ServiceEventService {
 
   submitApplication(firstName: string, lastName: string, email: string){
     console.log(`Application submitted for ${firstName} ${lastName} at ${email}`);
+  }
+
+  registerApp(username: string, email: string, password: string) {
+    console.log(`Application submitted for ${username} with ${email}, password: ${password}`);
+  }
+
+  loginApp(username: string, password: string) {
+    console.log(`Login submitted for ${username} with ${password}`);
   }
 }

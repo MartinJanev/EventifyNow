@@ -3,6 +3,7 @@ import { HomeComponent } from "./home/home.component";
 import { DetailsComponent } from "./details/details.component";
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
+import { ForgotPasswordComponent } from "./forgot-password/forgot-password.component";
 
 const routeConfig: Routes = [
     {
@@ -29,7 +30,12 @@ const routeConfig: Routes = [
         path:'register',
         component: RegisterComponent,
         title: 'Register Page'
-    }
+    },
+    {
+        path: 'login/forgot-password',
+        component: ForgotPasswordComponent,
+        title: 'Forgot Password'
+    },
 ];
 
 export default routeConfig;

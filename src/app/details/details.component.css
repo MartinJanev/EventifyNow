@@ -71,7 +71,7 @@ li {
 }
 
 .listing-photo {
-  width: 100%;
+  height: 500px;
   border-radius: 30px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 }
@@ -132,6 +132,15 @@ li {
 .listing-apply .section-heading {
   font-size: 18pt;
   margin-bottom: 15px;
+}
+
+.description{
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 }
 
 

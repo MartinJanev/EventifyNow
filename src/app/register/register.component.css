@@ -1,0 +1,245 @@
+* {
+    box-sizing: inherit;
+  }
+  
+  html {
+    box-sizing: border-box;
+    font-size: 100%;
+    height: 100%;
+  }
+  
+  body {
+    color: var(--secondary-color);
+    font-size: 0.875rem;
+    font-weight: 400;
+    height: 100%;
+    line-height: 1.5;
+    margin: 0;
+    min-height: 100vh;
+  }
+
+  .google-form svg {
+    position: absolute;
+    vertical-align: middle;
+    color: white;
+    padding: 1rem;
+  }
+  ::placeholder{
+    color: white;
+  }
+
+  .register-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  
+  .align {
+    -webkit-box-align: center;
+            align-items: center;
+    display: flex;
+            flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-box-pack: center;
+            justify-content: center;
+    gap: 2rem;
+    background: url("../../../public/assets/simple-img.jpg") no-repeat center center/cover;
+  }
+
+  h2{
+    font-size: 3rem;
+  }
+  
+  
+  .grid {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 28rem;
+    width: 90%;
+  }
+  
+  
+  .hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  
+  .icons {
+    display: none;
+  }
+  
+  .icon {
+    display: inline-block;
+    fill: white;
+    font-size: 1.5rem;
+    height: 1em;
+    vertical-align: middle;
+    width: 1em;
+  }
+    
+  a {
+    color: var(--primary-color);
+    font-weight: 700;
+    outline: 0;
+    text-decoration: none;
+  }
+  
+  a:focus,
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  
+  input, button {
+    background-image: none;
+    border: 0;
+    color: inherit;
+    font: inherit;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    transition: background-color 0.5s ease-in-out;
+  }
+  
+  button[type='submit'] {
+    cursor: pointer;
+  }
+  
+  .form {
+    margin: -14px;
+    margin: -0.875rem;
+  }
+  
+  .form input[type='password'],
+  .form input[type='text'],
+  .form button[type='submit'] {
+    width: 100%;
+  }
+  
+  .form__field {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 14px;
+    margin: 0.875rem;
+  }
+
+  .form__field label{
+    position: absolute;
+  }
+  
+  .form__input {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+    
+  .register {
+    color: #eee;
+  }
+  
+  .register label,
+  .register input[type='text'],
+  .register input[type='password'],
+  .register button[type='submit'] {
+    border-radius: 0.25rem;
+    padding: 1rem;
+    padding-left: 3.5rem;
+  }
+  
+  .register label {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    padding-left: 20px;
+    padding-left: 1.25rem;
+    padding-right: 20px;
+    padding-right: 1.25rem;
+  }
+  
+  .register input[type='password'],
+  .register input[type='text'] {
+    background-color: var(--primary-color);
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+  
+  .register input[type='password']:focus,
+  .register input[type='password']:hover,
+  .register input[type='text']:focus,
+  .register input[type='text']:hover {
+    background-color: var(--hover-color);
+  }
+  
+  .register button[type='submit'] {
+    background-color: var(--user-button);
+    color: #eee;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  
+  .register button[type='submit']:focus,
+  .register button[type='submit']:hover {
+    background-color: var(--user-button-hover);
+    transition: background-color 0.4s ease-in-out;
+  }
+  
+  
+  p {
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+    font-size: 1.2rem;
+  }
+  
+  .text--center {
+    text-align: center;
+  }
+
+  .hr{
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    width: 100%;
+  }
+  hr{
+    margin: 1.5rem 0;
+    height: 1px;
+    width: 20rem;
+    border-width: 0px;
+    background-color: var(--secondary-color);
+  }
+
+  .hr span{
+    font-size: 1.1rem;
+    position: absolute;
+    left: 45%;
+    padding: 0 0.75rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    background-color: white;
+    box-sizing: border-box;
+  }
+
+  .google-form{
+    margin-top: 1rem;
+  }
+
+  .google-sign-in{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+  }

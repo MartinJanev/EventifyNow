@@ -16,9 +16,12 @@ body {
   --primary-color: #0042B6;
   --secondary-color: #0065D0;
   --accent-color: #bfe5ff;
+  --hover-color:#004c7f;
   --shadow-color: #80ccff;
   --card-color: #F0EDFF;
   --card-text-color: #33298e;
+  --user-button: #6DBAA1;
+  --user-button-hover: #4c827a;
 }
 
 button.primary {

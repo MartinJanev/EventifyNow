@@ -23,7 +23,6 @@ export class HeaderComponent {
       this.router.navigate(['/mk']);
       document.documentElement.lang = selectedLanguage;
     }
-
-    
   }
+  
 }
