@@ -230,6 +230,10 @@
     box-sizing: border-box;
   }
 
+  #submit-button{
+    padding: 1rem;
+  }
+
   .google-form{
     margin-top: 1rem;
   }
