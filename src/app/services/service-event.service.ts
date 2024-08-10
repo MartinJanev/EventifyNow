@@ -302,16 +302,12 @@ export class ServiceEventService {
 
   protected userList: User[] = [
     {
-      username: 'user1',
       password: '1234',
       email: 'johndoe@gmail.com',
-      fullname: 'John Doe'
     },
     {
-      username: 'user2',
       password: '12345',
       email: 'janedoe@gmail.com',
-      fullname: 'Jane Doe'
     }
   ];
 
