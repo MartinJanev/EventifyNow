@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EventDataComponent } from '../event-data/event-data.component';
-import{ Eventdata } from '../event-data';
-import { ServiceEventService } from '../service-event.service';
+import{ Eventdata } from '../../interface/event-data';
+import { ServiceEventService } from '../services/service-event.service';
 import { WelcomeComponent } from '../welcome/welcome.component';
 import { HeaderComponent } from "../header/header.component";
 import { FooterComponent } from "../footer/footer.component";

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Eventdata } from './event-data';
-import { User } from './user';
+import { Eventdata } from '../../interface/event-data';
+import { User } from '../../interface/user';
 
 @Injectable({
   providedIn: 'root'

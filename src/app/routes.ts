@@ -9,7 +9,7 @@ const routeConfig: Routes = [
     {
         path: '',
         component: HomeComponent,
-        title: 'Home Page'  
+        title: 'Home Page'
     },
     {
         path:'mk',

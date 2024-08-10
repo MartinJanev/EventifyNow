@@ -1,5 +1,5 @@
 import { Component,Input } from '@angular/core';
-import { Eventdata } from '../event-data';
+import { Eventdata } from '../../interface/event-data';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 

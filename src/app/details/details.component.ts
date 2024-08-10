@@ -1,8 +1,8 @@
 import { Component,inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { ServiceEventService } from '../service-event.service';
-import { Eventdata } from '../event-data';
+import { ServiceEventService } from '../services/service-event.service';
+import { Eventdata } from '../../interface/event-data';
 import { FormControl,FormGroup,ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from "../header/header.component";
 import { FooterComponent } from "../footer/footer.component";
@@ -23,6 +23,11 @@ export class DetailsComponent {
     lastName:new FormControl(''),
     email:new FormControl(''),
   });
+
+  ngOnInit() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
 
   constructor() {
     const id=Number(this.route.snapshot.params['id']);
