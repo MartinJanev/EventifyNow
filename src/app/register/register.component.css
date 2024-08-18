@@ -122,6 +122,7 @@
   
   .form input[type='password'],
   .form input[type='text'],
+  .form input[type='email'],
   .form button[type='submit'] {
     width: 100%;
   }
@@ -151,6 +152,7 @@
   .register label,
   .register input[type='text'],
   .register input[type='password'],
+  .register input[type='email'],
   .register button[type='submit'] {
     border-radius: 0.25rem;
     padding: 1rem;
@@ -167,6 +169,7 @@
   }
   
   .register input[type='password'],
+  .register input[type='email'],
   .register input[type='text'] {
     background-color: var(--primary-color);
     border-bottom-left-radius: 0;
@@ -176,7 +179,8 @@
   .register input[type='password']:focus,
   .register input[type='password']:hover,
   .register input[type='text']:focus,
-  .register input[type='text']:hover {
+  .register input[type='text']:hover,
+  .register input[type='email']:hover {
     background-color: var(--hover-color);
   }
   
