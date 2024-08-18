@@ -10,7 +10,6 @@
     </section>
     <section class="listing">
         <section class="listing-description">
-            <a   class="similar-event" href="#" >Find similar events in {{eventData?.city}}</a>      
             <img class="listing-photo" [src]="eventData?.photo" alt="Image of {{eventData?.name}}">
             <div class="listing-blitz">
                 <h2 class="listing-heading">{{ eventData?.name }}</h2>
@@ -35,19 +34,13 @@
                     </div>
                 </section>
                     <p >Participants: ~{{eventData?.participants}}</p>
-                    <p >Price: {{eventData?.price === 0 ? 'Free' : eventData?.price | currency:'USD':'symbol':'1.2-2'}}</p>
+                    <p>Price: {{ eventData?.price !== 0 ? eventData?.price + ' den' : 'Free' }}</p>
             </section>
             <section class="listing-apply">
-                <h2 class="section-heading" >Apply now to live</h2>
-                <form [formGroup]="applyForm" (submit)="submitApplication()">
-                    <label  for=first-name>First Name</label>
-                    <input type="text" id="first-name" formControlName="firstName">
-                    <label  for=last-name>Last Name</label>
-                    <input type="text" id="last-name" formControlName="lastName">
-                    <label  for=email>Email</label>
-                    <input type="email" id="email" formControlName="email">
-                    <button  type="submit" class="primary">Apply now</button>
-                </form>
+                <p>Registration</p>
+                <p>Welcone!</p>
+                <span></span>
+                <button type="submit" class="b-RSVP">RSVP</button>
             </section>
             <p class="description"> {{eventData?.description}} </p>
         </section>

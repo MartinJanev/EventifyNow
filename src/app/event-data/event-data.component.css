@@ -32,6 +32,13 @@
   }
 }
 
+.listing-p{
+  margin: 0.5rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .listing-date-time{
   display: flex;
   flex-direction: row;
@@ -44,13 +51,6 @@
   padding: 0 1rem;
   color: var(--card-text-color);
   font-weight: 500;
-}
-.listing-organizator::before{
-  content: url("/assets/human.svg") / "";
-}
-
-.listing-price::before {
-  content: url("/assets/price.svg") / "";
 }
 
 .listing-date::before {
