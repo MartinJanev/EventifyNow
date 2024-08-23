@@ -36,7 +36,7 @@ button {
   }   
 }
 
-@media (min-width: 350px) and (max-width: 799px) {
+@media (max-width: 799px) {
   .results {
       grid-template-columns: repeat(1, 1fr);
       padding: 1rem;
@@ -54,6 +54,7 @@ button {
       grid-template-columns: repeat(2, 1fr);
       transition: 0.5s ease-in-out;
       padding: 0 4rem;
+      column-gap: 20px;
   }
   input[type="text"] {
       width: 70%;
@@ -72,7 +73,7 @@ button {
 }
 @media (min-width: 1500px) and (max-width: 1920px) {
   .results {
-    padding: 0 7.7rem;
+    padding: 0 7rem;
     grid-template-columns: repeat(4, 1fr);
       transition: 0.5s ease-in-out;
       column-gap: 20px;
