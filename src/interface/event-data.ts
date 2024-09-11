@@ -8,7 +8,6 @@ export interface Eventdata {
     endTime: string;
     city: string;
     country: string;
-    participants: number;
     description: string;
     category: string;
     organizer: string; 

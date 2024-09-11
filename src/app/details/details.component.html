@@ -1,5 +1,4 @@
 <article>
-    <app-header></app-header>
     <section class="go-back">
         <a href="http://localhost:4200/">
             <svg xmlns="http://www.w3.org/2000/svg" width="15pt" height="15pt" fill="#0042B6" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
@@ -16,7 +15,7 @@
                 <p class="listing-location">{{ eventData?.city}}, {{ eventData?.country }}</p>
             </div>
             <div class="listing-organizer">
-                <p >Organized by:</p>
+                <p>Organized by:</p>
                 <p>{{eventData?.organizer}}</p>
             </div>
         </section>
@@ -33,14 +32,16 @@
                         <p class="event-time">{{eventData?.startTime}} - {{eventData?.endTime}}</p>
                     </div>
                 </section>
-                    <p >Participants: ~{{eventData?.participants}}</p>
-                    <p>Price: {{ eventData?.price !== 0 ? eventData?.price + ' den' : 'Free' }}</p>
+                    <p class="listing-price">Price: {{ eventData?.price !== 0 ? eventData?.price + ' den' : 'Free' }}</p>
             </section>
             <section class="listing-apply">
-                <p>Registration</p>
-                <p>Welcone!</p>
-                <span></span>
-                <button type="submit" class="b-RSVP">RSVP</button>
+                <div>
+                    <p id="RSVP-title">Registration for the event</p>
+                </div>
+                <div>
+                    <p id="RSVP-text">Welcome! For better organization, confirm your desire to join the event:</p>
+                    <button type="submit" id="b-RSVP">ATTEND</button>
+                </div>
             </section>
             <p class="description"> {{eventData?.description}} </p>
         </section>

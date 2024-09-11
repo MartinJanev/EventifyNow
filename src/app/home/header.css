@@ -6,18 +6,15 @@ header {
   }
   .content {
     padding: var(--content-padding);
-  
   }
-  
   
   nav,footer{
     background-color: var(--primary-color);
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center; 
-  
+    padding: 0 8rem;
   }
-  
   
   ul{
     display: flex;
@@ -40,7 +37,6 @@ header {
   
   nav{
     height: 4rem;
-  
   }
   
   nav a{
@@ -54,7 +50,7 @@ header {
     font-weight: 700;
   }
   
-  .logo-search-module{
+  .logo-module{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -78,6 +74,7 @@ header {
     color: var(--primary-color);
     transition: 0.4s ease-in-out;
   }
+  
   .search-form{
     display: flex;
     justify-content: center;
@@ -88,13 +85,13 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 6rem;
   }
   
   .search-bar input{
     padding: 0.6rem;
     border: 1.5px solid #ccc;
-    width: 15rem;
+    width: 17rem;
     font-size: 1rem;
   }
   
@@ -138,6 +135,7 @@ header {
     background-color: white;
     cursor: pointer;
     font-size: 0.9rem;
+    font-weight: 700;
   }
   
   .lang-changer:hover{
@@ -151,34 +149,24 @@ header {
     font-weight: 700;
     margin: 0 5px;
   }
-
+  
   #account-short{
     width: 0;
     display: none;
   }
   
-  @media (min-width: 1200px){
-    .search-form input{
+  @media (max-width:799px){
+    .header-info{
+      padding: 0 4rem;
+      transition: 0.5s ease-in-out;
+    }
+    .search-bar input{
+      width: 12rem;
       transition: 0.5s ease-in-out;
     }
   }
   
-  @media (min-width: 1099px) and (max-width: 1199px) {
-    .search-form input{
-      transition: 0.5s ease-in-out;
-      width: 10rem
-    }
-  
-  }
-  
-  @media (min-width:870px) and (max-width: 1098px) {
-    .search-form input{
-      width: 8rem;
-      transition: 0.5s ease-in-out;
-    }
-  }
-  
-  @media (max-width:869px){
+  @media (max-width:599px){
     .list-module ul{
       display: none;
     }
@@ -187,11 +175,10 @@ header {
     }
   
     #account-short{
-      transition: 0.5s ease-in;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 5px 25px;
+      padding: 5px 2rem;
       border-radius: 10px;
       background-color: white;
       color: var(--primary-color);
@@ -199,61 +186,69 @@ header {
       font-weight: 700;
     }
   }
+
+   
+  @media (max-width: 550px){
   
-  @media (min-width: 700px) and (max-width: 869px) {
-    .search-form input{
-      transition: 0.5s ease-in;
-      width: 5rem;
+    .language{
+      padding: 5px;
+    }
+    .lang-changer{
+      transition: 0.5s ease-in-out;
+      padding: 6px 12px;
+      margin: 0.1rem;
+    }
+  
+    #account-short{
+      transition: 0.5s ease-in-out;
+      font-size: 1px;
+    }
+  
+    nav{
+      padding: 0 1.5rem;
+    }
+  
+    .header-info{
+      padding: 0 2rem;
+      transition: 1s ease-in-out;
+    }
+  
+    .search-bar{
+      display: block;
+      padding: 6rem 3rem;
+    }
+  
+    .search-form {
+      transition: 2s ease-in-out;
+      flex-direction: column;
+    }
+  
+    .search-bar input {
+      width: 100%;
+      margin-bottom: 0.8rem;
+      border-radius: 6px !important;
+      transition: 1s ease-in-out;
+    }
+  
+    .search-button{
+      border-radius: 6px !important;
     }
   }
   
-  @media (max-width: 699px){
-  
-    .list-module{
-      justify-content: space-evenly;
-      width: 13rem;
-    }
-  
-    
-    .search-bar input,
-    .search-button{
-      display: none;
-    }
-  
-    #search-anchor::before {
-      content: url("/assets/search.svg") / "";
-    }
-    #search-anchor {
-      transition: 0.5s ease-out;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 12px;
-      border-radius: 10px;
-      background-color: white;
-      text-decoration: none;
-      font-weight: 700;
-    }
-  
-    #search-anchor:hover {
-      background-color: var(--accent-color);
-      transition: 0.2s ease-in;
-    }
-  
+  @media (max-width: 450px){
     .lang-changer{
-      font-weight: 700;
+      padding: 4px 4px;
+      margin: 0.1rem;
     }
-  
-    .lang-changer:hover{
-      background-color: white;
-      transition: 0.2s ease-in;
+
+    #account-short{
+      padding: 0.1rem 1.1rem;
     }
-  
   }
 
-  @media (max-width: 499px){
-    .lang-changer{
-      transition: 0.5s ease-in;
-      padding: 4px 8px;
+  @media (max-width: 350px){
+    .header-info{
+      padding: 0 1rem;
     }
   }
+  

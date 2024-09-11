@@ -1,9 +1,0 @@
-<div class="welcome-message">
-    <ng-container *ngIf="!isSignedIn; else loginSignup">
-        <p class="text">Welcome <!-- {{username}}  --> 👋</p>
-    </ng-container>
-    <ng-template #loginSignup>
-        <p class="text-sign">Please <a href="/register">join us,</a> it`s free.</p>
-    </ng-template>
-</div>
-
