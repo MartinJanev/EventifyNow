@@ -4,17 +4,18 @@ import { DetailsComponent } from "./details/details.component";
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
 import { ForgotPasswordComponent } from "./forgot-password/forgot-password.component";
+import { DashboardComponent } from "./dashboard/dashboard.component";
 
 const routeConfig: Routes = [
     {
         path: '',
-        component: HomeComponent,
-        title: 'Home Page'
+        component: DashboardComponent,
+        title: 'Landing Page',
     },
     {
-        path:'mk',
+        path: 'home',
         component: HomeComponent,
-        title: 'Почетна Страна'
+        title: 'Home page'
     },
     {
         path: 'details/:id',

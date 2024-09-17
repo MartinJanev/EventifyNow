@@ -6,7 +6,6 @@
   padding: 0;
   font-family: 'Rubik', sans-serif;
   scroll-behavior: smooth;
-  
 }
 
 body {
@@ -16,18 +15,11 @@ body {
   --primary-color: #0042B6;
   --secondary-color: #0065D0;
   --accent-color: #bfe5ff;
+  --accent-btn-color:#0099ff;
   --hover-color:#004c7f;
   --shadow-color: #80ccff;
   --card-color: #F0EDFF;
   --card-text-color: #33298e;
-  --user-button: #6DBAA1;
-  --user-button-hover: #4c827a;
-}
-
-button.primary {
-  padding: 10px;
-  border: solid 1px var(--primary-color);
-  background: var(--primary-color);
-  color: white;
-  border-radius: 8px;
+  --form-hover-color: #e2e2e2;
+  --dash-color:#42b600;
 }

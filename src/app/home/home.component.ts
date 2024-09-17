@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject,OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EventDataComponent } from '../event-data/event-data.component';
 import{ Eventdata } from '../../interface/event-data';
@@ -11,7 +11,7 @@ import { Router, RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, EventDataComponent, FooterComponent, RouterModule],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css', './header.css', './card.css']
+  styleUrls: ['./header.css', './card.css']
 })
 export class HomeComponent {
   eventDataList: Eventdata[] = [];
@@ -24,6 +24,11 @@ export class HomeComponent {
     this.filteredDataList = this.eventDataList;
   }
 
+  ngOnInit() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
   filterResults(text: string) {
     if(!text){
       this.filteredDataList = this.eventDataList;
@@ -34,6 +39,19 @@ export class HomeComponent {
       eventData?.city.toLowerCase().includes(text.toLowerCase()) ||
       eventData?.name.toLowerCase().includes(text.toLowerCase())
     );
-  }
-  
+  } 
 }
+
+/*
+eventDataList: Eventdata[] = [];
+/filteredDataList: Eventdata[] = [];
+
+
+constructor (private eventService: ServiceEventService){}
+ngOnInit(){
+  this.eventService.getEvents().subscribe({
+    next:(eventDataList) => this.eventDataList = eventDataList,
+    error: (err) => console.error("Error fetching data",err)
+  });
+}
+*/

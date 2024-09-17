@@ -1,4 +1,4 @@
-<a [routerLink]="['/details',eventData.id]" class="card">
+<a href="#" (click)="navigateEventWithDelay(eventData.id ?? 0)" class="card">
     <section class="listing">
         <img class="listing-photo" [src]="eventData.photo"
         alt="Image of {{eventData.name}}">

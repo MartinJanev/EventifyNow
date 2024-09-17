@@ -1,7 +1,7 @@
 .card{
   text-decoration: none;
   cursor: unset;
-  height:max-content
+  height:max-content;
 }
 
 .card section:hover{
@@ -55,6 +55,7 @@
 
 .listing-date::before {
   content: url("/assets/calendar.svg") / "";
+  padding-right: 0.2rem;
 }
 .listing-location::before {
   content: url("/assets/location-pin.svg") / "";
