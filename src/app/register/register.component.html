@@ -1,68 +1,69 @@
-<body class="align">
-    <div class="register-text">
-        <h2>Sign Up</h2>
+<body class="align mat-typography">
+  <div class="authentication-text">
+    <h2>Sign Up</h2>
+  </div>
+
+  <div class="grid">
+    <!-- Register Form -->
+    <form class="form authentication">
+      <mat-form-field class="form__field" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          type="email"
+          placeholder="Email"
+          [(ngModel)]="email"
+          name="email"
+          required
+        />
+        <mat-icon matPrefix>person</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="form__field" appearance="outline">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          type="password"
+          placeholder="Password"
+          [(ngModel)]="password"
+          name="password"
+          required
+        />
+        <mat-icon matPrefix>lock</mat-icon>
+      </mat-form-field>
+
+      <div class="form__field">
+        <button mat-raised-button type="submit" (click)="register()">
+          Sign Up
+        </button>
+      </div>
+    </form>
+
+    <div class="text--center">
+      <p>Already a member?
+      <a routerLink="/login">Sign in</a>
     </div>
 
-    <div class="grid">
-
-        <form action="https://httpbin.org/post" method="POST" class="form register google-form">
-            <div class="form__field">
-                <a class="google-sign-in">Sign in with Google</a>
-                <svg width="1.5rem" height="1.5rem"  class="text-pi-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M20.283 10.356h-8.327v3.451h4.792c-.446 2.193-2.313 3.453-4.792 3.453a5.27 5.27 0 0 1-5.279-5.28 5.27 5.27 0 0 1 5.279-5.279c1.259 0 2.397.447 3.29 1.178l2.6-2.599c-1.584-1.381-3.615-2.233-5.89-2.233a8.908 8.908 0 0 0-8.934 8.934 8.907 8.907 0 0 0 8.934 8.934c4.467 0 8.529-3.249 8.529-8.934 0-.528-.081-1.097-.202-1.625z"></path>
-                </svg>
-            </div>
-          </form>
-
-        <div class="hr">
-            <hr>
-            <span>OR</span>
-          </div>
-  
-      <form [formGroup]="registerForm" action="https://httpbin.org/post" (submit)="registerApp()" method="POST" class="form register">
-  
-        <div class="form__field">
-          <label for="register__username"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#user"></use></svg><span class="hidden">Username</span></label>
-          <input id="register__username" type="text" formControlName="username" class="form__input" placeholder="Username" required>
-        </div>
-
-        <div class="form__field">
-          <label for="register__mail"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#mail"></use></svg><span class="hidden">Email</span></label>
-          <input id="register__mail" type="text" formControlName="email" class="form__input" placeholder="Email" required>
-        </div>
-  
-        <div class="form__field">
-          <label for="register__password"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#lock"></use></svg><span class="hidden">Password</span></label>
-          <input id="register__password" type="password" formControlName="password" class="form__input" placeholder="Password" required>
-        </div>
-
-        <div class="form__field">
-          <label for="register_confirm_password"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#lock"></use></svg><span class="hidden"> Confirm Password</span></label>
-          <input id="register_confirm_password" type="password" formControlName="password" class="form__input" placeholder="Confirm password" required>
-        </div>
-  
-        <div class="form__field">
-          <button id="submit-button" type="submit">Sign Up</button>
-        </div>
-  
-      </form>
-  
-      <p class="text--center">Already a member? <a routerLink="/login">Sign in</a> <svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#arrow-right"></use></svg></p>
-
+    <div class="hr">
+      <hr />
+      <span>OR</span>
     </div>
-  
-    <svg xmlns="http://www.w3.org/2000/svg" class="icons">
-        <symbol id="arrow-right" viewBox="0 0 1792 1792">
-            <path d="M1600 960q0 54-37 91l-651 651q-39 37-91 37-51 0-90-37l-75-75q-38-38-38-91t38-91l293-293H245q-52 0-84.5-37.5T128 1024V896q0-53 32.5-90.5T245 768h704L656 474q-38-36-38-90t38-90l75-75q38-38 90-38 53 0 91 38l651 651q37 35 37 90z"/>
-        </symbol>
-        <symbol id="lock" viewBox="0 0 1792 1792">
-            <path d="M640 768h512V576q0-106-75-181t-181-75-181 75-75 181v192zm832 96v576q0 40-28 68t-68 28H416q-40 0-68-28t-28-68V864q0-40 28-68t68-28h32V576q0-184 132-316t316-132 316 132 132 316v192h32q40 0 68 28t28 68z"/>
-        </symbol>
-        <symbol id="user" viewBox="0 0 1792 1792">
-            <path d="M1600 1405q0 120-73 189.5t-194 69.5H459q-121 0-194-69.5T192 1405q0-53 3.5-103.5t14-109T236 1084t43-97.5 62-81 85.5-53.5T538 832q9 0 42 21.5t74.5 48 108 48T896 971t133.5-21.5 108-48 74.5-48 42-21.5q61 0 111.5 20t85.5 53.5 62 81 43 97.5 26.5 108.5 14 109 3.5 103.5zm-320-893q0 159-112.5 271.5T896 896 624.5 783.5 512 512t112.5-271.5T896 128t271.5 112.5T1280 512z"/>
-        </symbol>
-        <symbol id="mail" viewBox="0 0 24 24">
-            <path d="M12 12.713l-11.985-9.713h23.971l-11.986 9.713zm-5.425-1.822l-6.575-5.329v12.501l6.575-7.172zm10.85 0l6.575 7.172v-12.501l-6.575 5.329zm-1.557 1.261l-3.868 3.135-3.868-3.135-8.11 8.848h23.956l-8.11-8.848z"/>        
-        </symbol>
-    </svg>
+
+    <form class="form authentication google-form">
+      <button mat-raised-button class="google-sign-in">
+        Continue with
+        <svg
+          width="1.5rem"
+          height="1.5rem"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path
+            d="M20.283 10.356h-8.327v3.451h4.792c-.446 2.193-2.313 3.453-4.792 3.453a5.27 5.27 0 0 1-5.279-5.28 5.27 5.27 0 0 1 5.279-5.279c1.259 0 2.397.447 3.29 1.178l2.6-2.599c-1.584-1.381-3.615-2.233-5.89-2.233a8.908 8.908 0 0 0-8.934 8.934 8.907 8.907 0 0 0 8.934 8.934c4.467 0 8.529-3.249 8.529-8.934 0-.528-.081-1.097-.202-1.625z"
+          ></path>
+        </svg>
+      </button>
+    </form>
+  </div>
 </body>

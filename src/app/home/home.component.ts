@@ -5,11 +5,12 @@ import{ Eventdata } from '../../interface/event-data';
 import { ServiceEventService } from '../services/service-event.service';
 import { FooterComponent } from "../footer/footer.component";
 import { Router, RouterModule } from '@angular/router';
+import { AddEventComponent } from "../add-event/add-event.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, EventDataComponent, FooterComponent, RouterModule],
+  imports: [CommonModule, EventDataComponent, FooterComponent, RouterModule, AddEventComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./header.css', './card.css']
 })

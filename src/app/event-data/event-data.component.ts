@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Eventdata } from '../../interface/event-data';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router'; // Import Router
+import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
 
 @Component({

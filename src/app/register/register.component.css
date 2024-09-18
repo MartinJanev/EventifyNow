@@ -1,253 +1,255 @@
 * {
-    box-sizing: inherit;
-  }
-  
-  html {
-    box-sizing: border-box;
-    font-size: 100%;
-    height: 100%;
-  }
-  
-  body {
-    color: var(--secondary-color);
-    font-size: 0.875rem;
-    font-weight: 400;
-    height: 100%;
-    line-height: 1.5;
-    margin: 0;
-    min-height: 100vh;
-  }
+  box-sizing: inherit;
+}
 
-  .google-form svg {
-    position: absolute;
-    vertical-align: middle;
-    color: white;
-    padding: 1rem;
-  }
-  ::placeholder{
-    color: white;
-  }
+*:not(form):not(form *) {
+  font-family: "Rubik", "Helvetica Neue", sans-serif;
+}
 
-  .register-text{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  
-  
-  .align {
-    -webkit-box-align: center;
-            align-items: center;
-    display: flex;
-            flex-direction: column;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-box-pack: center;
-            justify-content: center;
-    gap: 2rem;
-    background: url("../../../public/assets/simple-img.jpg") no-repeat center center/cover;
-  }
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+  height: 100%;
+}
 
-  h2{
-    font-size: 3rem;
-  }
-  
-  
-  .grid {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 28rem;
-    width: 90%;
-  }
-  
-  
-  .hidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-  }
-  
-  
-  .icons {
-    display: none;
-  }
-  
-  .icon {
-    display: inline-block;
-    fill: white;
-    font-size: 1.5rem;
-    height: 1em;
-    vertical-align: middle;
-    width: 1em;
-  }
-    
-  a {
-    color: var(--primary-color);
-    font-weight: 700;
-    outline: 0;
-    text-decoration: none;
-  }
-  
-  a:focus,
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  
-  input, button {
-    background-image: none;
-    border: 0;
-    color: inherit;
-    font: inherit;
-    margin: 0;
-    outline: 0;
-    padding: 0;
-    transition: background-color 0.5s ease-in-out;
-  }
-  
-  button[type='submit'] {
-    cursor: pointer;
-  }
-  
-  .form {
-    margin: -14px;
-    margin: -0.875rem;
-  }
-  
-  .form input[type='password'],
-  .form input[type='text'],
-  .form input[type='email'],
-  .form button[type='submit'] {
-    width: 100%;
-  }
-  
-  .form__field {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin: 14px;
-    margin: 0.875rem;
-  }
+body {
+  font-size: 0.875rem;
+  font-weight: 400;
+  height: 100%;
+  line-height: 1.5;
+  margin: 0;
+  min-height: 100vh;
+}
 
-  .form__field label{
-    position: absolute;
-  }
-  
-  .form__input {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-  }
-    
-  .register {
-    color: #eee;
-  }
-  
-  .register label,
-  .register input[type='text'],
-  .register input[type='password'],
-  .register input[type='email'],
-  .register button[type='submit'] {
-    border-radius: 0.25rem;
-    padding: 1rem;
-    padding-left: 3.5rem;
-  }
-  
-  .register label {
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 0;
-    padding-left: 20px;
-    padding-left: 1.25rem;
-    padding-right: 20px;
-    padding-right: 1.25rem;
-  }
-  
-  .register input[type='password'],
-  .register input[type='email'],
-  .register input[type='text'] {
-    background-color: var(--primary-color);
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-  }
-  
-  .register input[type='password']:focus,
-  .register input[type='password']:hover,
-  .register input[type='text']:focus,
-  .register input[type='text']:hover,
-  .register input[type='email']:hover {
-    background-color: var(--hover-color);
-  }
-  
-  .register button[type='submit'] {
-    background-color: var(--user-button);
-    color: #eee;
-    font-weight: 700;
-    text-transform: uppercase;
-  }
-  
-  .register button[type='submit']:focus,
-  .register button[type='submit']:hover {
-    background-color: var(--user-button-hover);
-    transition: background-color 0.4s ease-in-out;
-  }
-  
-  
-  p {
-    margin-bottom: 1.5rem;
-    margin-top: 2rem;
-    font-size: 1.2rem;
-  }
-  
-  .text--center {
-    text-align: center;
-  }
+h2{
+  font-size: 3rem;
+  color: var(--secondary-color);
+  font-weight: 700;
+}
 
-  .hr{
-    display: inline-flex;
-    align-items: center;
-    position: relative;
-    justify-content: center;
-    width: 100%;
-  }
-  hr{
-    margin: 1.5rem 0;
-    height: 1px;
-    width: 20rem;
-    border-width: 0px;
-    background-color: var(--secondary-color);
-  }
+a {
+  color: var(--primary-color);
+  font-weight: 700;
+  outline: 0;
+  text-decoration: none;
+}
 
-  .hr span{
-    font-size: 1.1rem;
-    position: absolute;
-    left: 45%;
-    padding: 0 0.75rem;
-    font-weight: 500;
-    color: var(--primary-color);
-    background-color: white;
-    box-sizing: border-box;
-  }
+button[type='submit'],a {
+  cursor: pointer;
+}
 
-  #submit-button{
-    padding: 1rem;
-  }
+a:focus,
+a:hover {
+text-decoration: underline;
+}
 
-  .google-form{
-    margin-top: 1rem;
-  }
+p {
+  margin-bottom: 1.5rem;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+}
 
-  .google-sign-in{
-    box-sizing: border-box;
-    width: 100%;
-    padding: 1rem;
-    border-radius: 0.25rem;
-    background-color: var(--primary-color);
-    color: white;
-    text-align: center;
-  }
+input,button {
+background-image: none;
+border: 0;
+color: inherit;
+font: inherit;
+margin: 0;
+outline: 0;
+padding: 0;
+transition: background-color 0.5s ease-in-out;
+}
+
+
+::placeholder{
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+
+.grid {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 28rem;
+  width: 90%;
+}
+
+.align {
+  -webkit-box-align: center;
+          align-items: center;
+  display: flex;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-box-pack: center;
+          justify-content: center;
+  gap: 3rem;
+  background-color: rgba(240, 240, 240, 1);
+}
+
+.google-form svg {
+  position: relative;
+  vertical-align: middle;
+  color: white;
+  padding: 0 0.2rem;
+}
+
+.hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+
+.icons {
+  display: none;
+}
+
+.icon {
+  display: inline-block;
+  fill: var(--primary-color);
+  font-size: 1.5rem;
+  height: 1em;
+  vertical-align: middle;
+  width: 1em;
+}
+
+.form {
+  margin: -14px;
+  margin: -0.875rem;
+}
+
+.form input[type='password'],
+.form input[type='text'],
+.form input[type='email'],
+.form button[type='submit'] {
+  width: 100%;
+}
+
+.form input[type='password']:-webkit-autofill,
+.form input[type='text']:-webkit-autofill,
+.form input[type='email']:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px rgba(240, 240, 240, 1) inset !important;
+  -webkit-text-fill-color: inherit !important;
+}
+
+.form__field {
+  display: flex;
+  margin: 0.5rem 0.875rem;
+}
+
+.form__field label{
+  position: absolute;
+}
+
+.form__input {
+-webkit-box-flex: 1;
+  -ms-flex: 1;
+      flex: 1;
+}
+
+
+.authentication button[type='submit'] {
+  background-color: var(--primary-color);
+  color: #eee;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.authentication button[type='submit']:hover {
+  background-color: var(--secondary-color);
+  transition: background-color 0.4s ease-in-out;
+}
+
+.text--center {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin: 3rem 0;
+}
+
+.text--center p {
+  margin: 0;
+}
+
+.text--center a {
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.hr{
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  width: 100%;
+}
+hr{
+  margin: 1.5rem 0;
+  height: 1px;
+  width: 20rem;
+  border-width: 0px;
+  background-color: var(--secondary-color);
+}
+
+.hr span{
+  border-radius: 50%;
+  border: 1px solid var(--secondary-color);
+  font-size: 1.1rem;
+  position: absolute;
+  left: 45%;
+  padding: 0 0.75rem;
+  font-weight: 500;
+  color: var(--primary-color);
+  background-color: white;
+  box-sizing: border-box;
+}
+
+#submit-button{
+  padding: 1rem;
+}
+
+.google-form {
+  margin-top: 1rem;
+}
+
+.google-sign-in {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem;
+  width: 100%;
+  border-radius: 1rem;
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: center;
+  transition: background-color 0.3s ease-in-out;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  gap: 0.5rem;
+  background-color: var(--primary-color) !important;
+  color: white !important;
+}
+
+.google-sign-in svg {
+  vertical-align: middle;
+  font-size: 1.5rem;
+  color: white !important;
+}
+
+.google-sign-in:hover {
+  background-color: var(--secondary-color);
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.5s ease-in-out;
+}
+
