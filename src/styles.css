@@ -20,8 +20,6 @@ body {
   --shadow-color: #80ccff;
   --card-color: #F0EDFF;
   --card-text-color: #33298e;
-  --form-hover-color: #e2e2e2;
-  --dash-color:#42b600;
 }
 
 html, body { height: 100%; }

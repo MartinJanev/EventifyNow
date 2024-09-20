@@ -125,39 +125,7 @@ header {
     width: 0;
     display: none;
   }
-
-  .add-event-section{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 1rem;
-    margin-bottom: 3rem;
-  }
-
-  .add-event-section h2 {
-    font-size: 2.5rem; /* Increased font size */
-    font-weight: 700;
-    margin: 2rem 0; /* Increased margin */
-  }
-
-  .add-event-section p {
-    font-size: 1.2rem; /* Increased font size */
-    font-weight: 500;
-    margin-bottom: 2rem; /* Increased margin */
-  }
-
-  .add-event-section a{
-    padding: 0.7em;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 700;
-    border-radius: 10px;
-    border: 1px solid var(--secondary-color);
-    background-color: var(--secondary-color);
-    color: white;
-  }
-
+  
   @media (max-width:1250px)
   {
     .header-info{
@@ -196,7 +164,7 @@ header {
   
     .search-bar{
       display: block;
-      padding: 6rem 3rem;
+      padding: 3  rem 3rem;
     }
   
     .search-form {

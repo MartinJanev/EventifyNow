@@ -1,0 +1,46 @@
+.add-event-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .add-event-section h2 {
+    font-size: 2.5rem; /* Increased font size */
+    font-weight: 700;
+    margin: 1rem 0; /* Increased margin */
+    text-align: center;
+  }
+
+  .add-event-section p {
+    font-size: 1.2rem; /* Increased font size */
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 2rem; /* Increased margin */
+  }
+
+  .add-event-section button{
+    padding: 0.7em;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 10px;
+    border: 1px solid var(--secondary-color);
+    background-color: var(--secondary-color);
+    color: white;
+  }
+
+  .add-event-section button:hover{
+    background-color: var(--accent-btn-color);
+    border: 1px solid var(--accent-btn-color);
+    transition: 0.2s ease-in;
+  }
+
+.add-event-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+}

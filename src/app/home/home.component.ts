@@ -1,23 +1,23 @@
-import { Component, inject,OnInit } from '@angular/core';
+import { Component, inject,OnInit,Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EventDataComponent } from '../event-data/event-data.component';
 import{ Eventdata } from '../../interface/event-data';
 import { ServiceEventService } from '../services/service-event.service';
 import { FooterComponent } from "../footer/footer.component";
 import { Router, RouterModule } from '@angular/router';
-import { AddEventComponent } from "../add-event/add-event.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, EventDataComponent, FooterComponent, RouterModule, AddEventComponent],
+  imports: [CommonModule, EventDataComponent, FooterComponent, RouterModule],
   templateUrl: './home.component.html',
-  styleUrls: ['./header.css', './card.css']
+  styleUrls: ['./header.css', './card.css', './add-event.css']
 })
 export class HomeComponent {
   eventDataList: Eventdata[] = [];
   filteredDataList: Eventdata[] = [];
   eventService: ServiceEventService = inject(ServiceEventService);
+  isAddEventVisible: boolean=false;
 
 
   constructor() {
@@ -29,6 +29,14 @@ export class HomeComponent {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   }
+
+  openAdd() {
+    this.isAddEventVisible = true;
+  }
+  closeAdd() {
+    this.isAddEventVisible = false;
+  }
+
 
   filterResults(text: string) {
     if(!text){

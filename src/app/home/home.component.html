@@ -12,6 +12,7 @@
       </ul>
     </div>
 </nav>
+
 <div class="search-bar">
   <form class="search-form">
     <input type="text" placeholder="Search event" #filter/>
@@ -19,12 +20,20 @@
     <button class="search-button" (click)="filterResults(filter.value)">Search</button>
   </form>
 </div>
+
 <div class="add-event-section">
     <h2>Want to add an event?</h2>
     <p>Click the button below to add an event</p>
-    <button class="add-event-button" >Add Event</button>
-  </div>
+    <button class="add-event-button" (click)="openAdd()" >Add Event</button>
+</div>
+
+<div *ngIf="isAddEventVisible" class="add-event-div">
+  <p>add-event works!</p>
+  <button (click)="closeAdd()">Close</button>
+</div>
+
 <section class="results">
     <app-event-data *ngFor="let events of filteredDataList" [eventData]="events"></app-event-data>
 </section>
+
 <app-footer></app-footer>
