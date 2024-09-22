@@ -31,7 +31,35 @@ export class DetailsComponent implements OnInit{
   delayBack(){
     setTimeout(() => {
       this.router.navigate(['/']);
-    }, 2000);  
+    }, 500);  
+  }
+
+  attendEvent(){
+    const customAlert = document.createElement('div');
+    customAlert.style.opacity = '0';
+    customAlert.style.transition = 'opacity 0.2s';
+    document.body.appendChild(customAlert);
+    requestAnimationFrame(() => {
+      customAlert.style.opacity = '1';
+    });
+    customAlert.innerText = 'You have successfully registered for this event!';
+    customAlert.style.position = 'fixed';
+    customAlert.style.top = '10%';
+    customAlert.style.left = '50%';
+    customAlert.style.transform = 'translate(-50%, -50%)';
+    customAlert.style.backgroundColor = '#fff';
+    customAlert.style.padding = '40px';
+    customAlert.style.boxShadow = '0 0 10px rgba(0,0,0,0.5)';
+    customAlert.style.zIndex = '1000';
+    customAlert.style.fontSize = '20px';
+    customAlert.style.color='#0042B6';
+    customAlert.style.fontWeight='bold';
+    document.body.appendChild(customAlert);
+
+    setTimeout(() => {
+      document.body.removeChild(customAlert);
+      this.delayBack();
+    }, 2500); // Customize the duration as needed
   }
   
 }

@@ -1,46 +1,147 @@
-.add-event-section{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 1rem;
-    margin-bottom: 3rem;
+.add-event-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+  margin-bottom: 3rem;
+}
+
+.add-event-section h2 {
+  font-size: 2.5rem; /* Increased font size */
+  font-weight: 700;
+  margin: 1rem 0; /* Increased margin */
+  text-align: center;
+}
+
+.add-event-section p {
+  font-size: 1.2rem; /* Increased font size */
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 2rem; /* Increased margin */
+}
+
+.add-event-section button {
+  padding: 0.7em;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 10px;
+  border: 1px solid var(--secondary-color);
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.add-event-section button:hover {
+  background-color: var(--accent-btn-color);
+  border: 1px solid var(--accent-btn-color);
+  transition: 0.2s ease-in;
+}
+
+.add-event-section button:focus {
+  background-color: var(--secondary-color); 
+}
+
+
+.add-event-close{
+  background-color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 1rem 0;
+  display: flex;
+  padding: 0.7em;
+}
+
+.add-event-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  flex-direction: column;
+}
+
+.add-event-div form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  gap: 1rem;
+}
+
+.add-event-div input,
+.add-event-div textarea {
+  width: 95%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.add-event-div button[type="submit"] {
+  padding: 0.7em;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 10px;
+  border: 1px solid var(--secondary-color);
+  background-color: var(--secondary-color);
+  color: white;
+  cursor: pointer;
+}
+
+.add-event-div button[type="submit"]:hover {
+  background-color: var(--accent-btn-color);
+  border: 1px solid var(--accent-btn-color);
+  transition: 0.2s ease-in;
+}
+
+.add-event-div button[type="button"] {
+  margin-top: 1rem;
+  padding: 0.7em;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 10px;
+  border: 1px solid var(--secondary-color);
+  background-color: var(--secondary-color);
+  color: white;
+  cursor: pointer;
+}
+
+.add-event-div button[type="button"]:hover {
+  background-color: var(--accent-btn-color);
+  border: 1px solid var(--accent-btn-color);
+  transition: 0.2s ease-in;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .add-event-div {
+      padding: 1.5rem;
+  }
+
+  .add-event-div form {
+      width: 90%;
   }
 
   .add-event-section h2 {
-    font-size: 2.5rem; /* Increased font size */
-    font-weight: 700;
-    margin: 1rem 0; /* Increased margin */
-    text-align: center;
+      font-size: 2rem;
   }
 
   .add-event-section p {
-    font-size: 1.2rem; /* Increased font size */
-    text-align: center;
-    font-weight: 500;
-    margin-bottom: 2rem; /* Increased margin */
+      font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .add-event-div form {
+      width: 100%;
   }
 
-  .add-event-section button{
-    padding: 0.7em;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 700;
-    border-radius: 10px;
-    border: 1px solid var(--secondary-color);
-    background-color: var(--secondary-color);
-    color: white;
+  .add-event-section h2 {
+      font-size: 1.5rem;
   }
 
-  .add-event-section button:hover{
-    background-color: var(--accent-btn-color);
-    border: 1px solid var(--accent-btn-color);
-    transition: 0.2s ease-in;
+  .add-event-section p {
+      font-size: 0.9rem;
   }
-
-.add-event-div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 3rem;
 }

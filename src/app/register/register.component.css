@@ -205,7 +205,6 @@ hr{
   border: 1px solid var(--secondary-color);
   font-size: 1.1rem;
   position: absolute;
-  left: 45%;
   padding: 0 0.75rem;
   font-weight: 500;
   color: var(--primary-color);

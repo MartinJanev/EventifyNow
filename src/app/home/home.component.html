@@ -1,39 +1,47 @@
 <nav class="header-info">
-    <div class="logo-module">
-      <div class="logo-icon"> 
-        <a href="http://localhost:4200/" class="logo" aria-hidden="true">EventifyNow</a> <!-- Promena vo logo in the future-->
-      </div>
+  <div class="logo-module">
+    <div class="logo-icon">
+      <a href="http://localhost:4200/" class="logo" aria-hidden="true">EventifyNow</a>
+    </div>
     </div>
     <div class="list-module">
-      <a routerLink="/login" id="account-short"></a>
-      <ul>
-        <li><a routerLink="/login">Log In</a></li>
-        <li><a routerLink="/register">Sign Up</a></li>
-      </ul>
-    </div>
+    <!--<span id="user-email">{{ userEmail }}</span> -->
+    <a routerLink="/logout">Log Out</a>
+  </div>
 </nav>
 
 <div class="search-bar">
   <form class="search-form">
-    <input type="text" placeholder="Search event" #filter/>
-    <input type="text" placeholder="City" #filter/>
-    <button class="search-button" (click)="filterResults(filter.value)">Search</button>
+    <input type="text" placeholder="Search event" #eventFilter/>
+    <input type="text" placeholder="City" #cityFilter/>
+    <button class="search-button" (click)="filterResults(eventFilter.value, cityFilter.value)">Search</button>
   </form>
 </div>
 
 <div class="add-event-section">
-    <h2>Want to add an event?</h2>
-    <p>Click the button below to add an event</p>
-    <button class="add-event-button" (click)="openAdd()" >Add Event</button>
+  <h2>Want to add an event?</h2>
+  <p>Click the button below to add an event</p>
+  <button class="add-event-button" (click)="openAdd()">Add Event</button>
 </div>
 
 <div *ngIf="isAddEventVisible" class="add-event-div">
-  <p>add-event works!</p>
-  <button (click)="closeAdd()">Close</button>
+  <button class="add-event-close" (click)="closeAdd()">Close Editor</button>
+  <form (ngSubmit)="addEvent()">
+    <input type="text" [(ngModel)]="event.name" name="name" placeholder="Event Name" required/>
+    <input type="text" [(ngModel)]="event.photo" name="photo" placeholder="Photo URL" required/>
+    <input type="date" [(ngModel)]="event.startDate" name="startDate" required/>
+    <input type="time" [(ngModel)]="event.startTime" name="startTime" required/>
+    <input type="text" [(ngModel)]="event.city" name="city" placeholder="City" required/>
+    <input type="text" [(ngModel)]="event.country" name="country" placeholder="Country" required/>
+    <textarea [(ngModel)]="event.description" name="description" placeholder="Description" required></textarea>
+    <input type="text" [(ngModel)]="event.organizer" name="organizer" placeholder="Organizer" required/>
+    <input type="number" [(ngModel)]="event.price" name="price" placeholder="Price" required/>
+    <button type="submit">Add Event</button>
+  </form>
 </div>
 
 <section class="results">
-    <app-event-data *ngFor="let events of filteredDataList" [eventData]="events"></app-event-data>
+  <app-event-data *ngFor="let events of filteredDataList" [eventData]="events"></app-event-data>
 </section>
 
 <app-footer></app-footer>
