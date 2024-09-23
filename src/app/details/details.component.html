@@ -44,6 +44,11 @@
                 </div>
             </section>
             <p class="description"> {{eventData?.description}} </p>
+            <section class="listing-delete" *ngIf="isAdmin()">
+                <div>
+                    <button type="button" id="b-delete" (click)="deleteEvent()">DELETE EVENT</button>
+                </div>
+            </section>
         </section>
     </section>
     <app-footer></app-footer>

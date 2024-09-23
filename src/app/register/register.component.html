@@ -4,38 +4,50 @@
   </div>
 
   <div class="grid">
-    <!-- Register Form -->
     <form class="form authentication">
       <mat-form-field class="form__field" appearance="outline">
-        <mat-label>Email</mat-label>
-        <input
-          matInput
-          type="email"
-          placeholder="Email"
-          [(ngModel)]="email"
-          name="email"
-          required
-        />
-        <mat-icon matPrefix>person</mat-icon>
+      <mat-label>Username</mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="Username"
+        [(ngModel)]="username"
+        name="username"
+        required
+      />
+      <mat-icon matPrefix>account_circle</mat-icon>
       </mat-form-field>
 
       <mat-form-field class="form__field" appearance="outline">
-        <mat-label>Password</mat-label>
-        <input
-          matInput
-          type="password"
-          placeholder="Password"
-          [(ngModel)]="password"
-          name="password"
-          required
-        />
-        <mat-icon matPrefix>lock</mat-icon>
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        type="email"
+        placeholder="Email"
+        [(ngModel)]="email"
+        name="email"
+        required
+      />
+      <mat-icon matPrefix>person</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="form__field" appearance="outline">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        type="password"
+        placeholder="Password"
+        [(ngModel)]="password"
+        name="password"
+        required
+      />
+      <mat-icon matPrefix>lock</mat-icon>
       </mat-form-field>
 
       <div class="form__field">
-        <button mat-raised-button type="submit" (click)="register()">
-          Sign Up
-        </button>
+      <button mat-raised-button type="submit" (click)="register()">
+        Sign Up
+      </button>
       </div>
     </form>
 

@@ -60,7 +60,7 @@
   }
   @media (min-width: 1500px) and (max-width: 1920px) {
     .results {
-      padding: 0 3rem;
+      padding: 0 5rem;
       grid-template-columns: repeat(4, 1fr);
         transition: 0.5s ease-in-out;
         column-gap: 20px;

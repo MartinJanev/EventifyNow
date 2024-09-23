@@ -1,33 +1,52 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject,OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { FormGroup,ReactiveFormsModule,FormControl } from '@angular/forms';
-import { ServiceEventService } from '../service-event.service';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDividerModule } from '@angular/material/divider';
+import { ServiceEventService } from '../services/service-event.service';
+
+
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [RouterModule,ReactiveFormsModule],
+  imports: [RouterModule,ReactiveFormsModule, FormsModule,MatInputModule,MatButtonModule,MatIconModule,MatFormFieldModule,MatDividerModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
 
-  eventService = inject(ServiceEventService)
+  username : string = '';
+  email : string = '';
+  password : string = '';
 
-  registerForm = new FormGroup(
-    {
-      username: new FormControl(''),
-      email: new FormControl(''),
-      password: new FormControl(''),
+//  constructor(private auth:AuthService){}
+
+  ngOnInit(): void {}
+  
+  register() {
+
+    if(this.email == '') {
+      alert('Please enter email');
+      return;
     }
-  )
 
-  registerApp(){
-     this.eventService.registerApp(
-      this.registerForm.value.username ?? '',
-      this.registerForm.value.email ?? '',
-      this.registerForm.value.password ?? ''
-     );
+    if(this.password == '') {
+      alert('Please enter password');
+      return;
+    }
+
+    if(this.username == '') {
+      alert('Please enter username');
+      return;
+    }
+    
+    this.email = '';
+    this.password = '';
+    this.username = '';
   }
-
 }

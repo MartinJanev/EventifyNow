@@ -14,11 +14,11 @@ import { RouterModule } from '@angular/router';
 export class EventDataComponent {
   @Input() eventData!: Eventdata;
 
-  constructor(private router: Router) {} // Inject Router service
+  constructor(private router: Router) {}
 
   navigateEventWithDelay(id: Number) {
     setTimeout(() => {
-      this.router.navigate(['/details', id]); // Navigate programmatically
+      this.router.navigate(['/details', id]);
     }, 300);
   }
 }

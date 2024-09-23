@@ -58,6 +58,7 @@
   justify-content: center;
   align-items: center;
   padding: 3rem;
+  padding-top: 0;
   flex-direction: column;
 }
 
@@ -65,17 +66,50 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 600px;
-  gap: 1rem;
+  max-width: 700px;
+  gap: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+
+.add-event-div form > div {
+  display: flex;
+  flex-direction: row;
+  gap: 0.8rem;
+  width: 100%;
+}
+
+.add-event-div form > div > * {
+  flex: 1;
 }
 
 .add-event-div input,
-.add-event-div textarea {
+.add-event-div textarea, .add-event-div select {
   width: 95%;
   padding: 0.5rem;
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+
+.add-event-div input:focus, .add-event-div textarea:focus, .add-event-div select:focus {
+  outline: none;
+  border: 1px solid var(--secondary-color);
+}
+
+.add-event-div select{
+  width: 98%;
+}
+@media (max-width: 768px) {
+  .main-container {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-container {
+    padding: 0.5rem;
+  }
 }
 
 .add-event-div button[type="submit"] {
@@ -95,7 +129,7 @@
   transition: 0.2s ease-in;
 }
 
-.add-event-div button[type="button"] {
+.add-event-close {
   margin-top: 1rem;
   padding: 0.7em;
   font-size: 1rem;
@@ -107,11 +141,13 @@
   cursor: pointer;
 }
 
-.add-event-div button[type="button"]:hover {
+.add-event-close:hover {
   background-color: var(--accent-btn-color);
   border: 1px solid var(--accent-btn-color);
   transition: 0.2s ease-in;
 }
+
+
 
 /* Responsive Styles */
 @media (max-width: 768px) {

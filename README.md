@@ -1,12 +1,12 @@
-# Event Management System
+# EventifyNow
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.7.
 
-## What is Event Management System?
+## What is Eventify?
 
-Event Management System is a web application that allows users to view and create their own events. Users can view events created by other users and can also register for the events. Technologies used in this project are Angular with TS and Firebase as SAAS. 
+EventifyNow is an Event Management System web application, that allows users to view and create their own events. Users can view events created by other users and can also register for the events. Technologies used in this project are Angular with TS and Firebase as SAAS. 
 
-# Important about the project
+# Important commands about the project
 
 ## Development server
 

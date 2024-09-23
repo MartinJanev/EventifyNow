@@ -31,10 +31,6 @@
         <mat-icon matPrefix>lock</mat-icon>
       </mat-form-field>
 
-      <div class="forget-password">
-        <a routerLink="/login/forgot-password">Forgot Password?</a>
-      </div>
-
       <div class="form__field">
         <button mat-raised-button type="submit" (click)="login()">
           Sign In
@@ -52,7 +48,7 @@
     </div>
 
     <form class="form authentication google-form">
-      <button mat-raised-button class="google-sign-in">
+      <button mat-raised-button class="google-sign-in" (click)="signInWithGoogle()">
         Continue with
         <svg
           width="1.5rem"
