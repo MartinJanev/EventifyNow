@@ -2,40 +2,40 @@ header {
     display: block;
     height: 60px;
     padding: var(--content-padding);
-    box-shadow: 0px 5px 25px var(--shadow-color);
+    box-shadow: 0 5px 25px var(--shadow-color);
   }
-  
+
   nav{
     background-color: var(--primary-color);
     display: flex;
     justify-content: space-between;
-    align-items: center; 
+    align-items: center;
     padding: 0 8rem;
   }
-  
+
   ul{
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 10px;
   }
-  
+
   li{
     list-style-type: none;
     padding: 10px;
   }
-  
+
   .logo-icon{
     padding: 1rem 1.5rem;
     border: 2px solid white;
     background-color: white;
     border-radius: 30px;
   }
-  
+
   nav{
     height: 5rem;
   }
-  
+
   nav a{
     display: flex;
     justify-content: center;
@@ -46,32 +46,32 @@ header {
     color: var(--primary-color);
     font-weight: 700;
   }
-  
+
   .logo-module{
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  
+
   .list-module{
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  
+
   .list-module ul a{
     color: white;
     text-decoration: none;
     padding: 10px;
     border-radius: 10px;
   }
-  
+
   .list-module a:hover, footer a:hover{
     background-color: var(--accent-color);
     color: var(--primary-color);
     transition: 0.4s ease-in-out;
   }
-  
+
   #account-short{
     width: 0;
     display: none;
@@ -84,9 +84,9 @@ header {
       transition: 0.5s ease-in-out;
     }
   }
-  
 
-  
+
+
   @media (max-width:400px){
     .list-module ul{
       display: none;
@@ -94,7 +94,7 @@ header {
     #account-short::before {
       content: url("/assets/account.svg") / "";
     }
-  
+
     #account-short{
       display: flex;
       justify-content: center;
@@ -108,23 +108,23 @@ header {
     }
   }
 
-   
+
   @media (max-width: 550px){
-  
+
     #account-short{
       transition: 0.5s ease-in-out;
       font-size: 1px;
     }
-  
+
     nav{
       padding: 0 1.5rem;
     }
-  
+
     .header-info{
       padding: 0 2rem;
       transition: 1s ease-in-out;
     }
-  
+
   }
 
 
@@ -133,4 +133,3 @@ header {
       padding: 0 1rem;
     }
   }
-  

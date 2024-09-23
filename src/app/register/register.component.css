@@ -121,7 +121,6 @@ transition: background-color 0.5s ease-in-out;
 }
 
 .form {
-  margin: -14px;
   margin: -0.875rem;
 }
 
@@ -196,7 +195,7 @@ hr{
   margin: 1.5rem 0;
   height: 1px;
   width: 20rem;
-  border-width: 0px;
+  border-width: 0;
   background-color: var(--secondary-color);
 }
 

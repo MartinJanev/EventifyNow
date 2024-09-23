@@ -13,17 +13,15 @@ export class ServiceEventService {
   isAdmin(): boolean { // Check if the user is an admin for deleting events in Details section - ne raboti
     const userEmail = 'admin';
     const userPassword = 'admin';
-    if (userEmail === 'admin' && userPassword === 'admin') {
-      return true;
-    }
-    return false;
+    return userEmail === 'admin' && userPassword === 'admin';
+
   }
 
   getEvents() :Observable<Eventdata[]>{ // Get all events from Firestore - ne uspeva da se prikazat
     const eventCollection = collection(this.firestore, 'events');
     return collectionData(eventCollection,{idField:'id'});
   }
-  
+
   //Podolu e celata niza od nastani od koja se scrapaat podatocite
   protected eventDataList: Eventdata[] = [
     // Add the following data to the eventDataList array - fix the data for each event
@@ -255,7 +253,7 @@ export class ServiceEventService {
       organizer: 'NGO Center for Human Relations Krushevo',
       price: 800,
     }
-   
+
   ];
 
   getAllEvents(): Eventdata[] { // Get all events from the eventDataList array - gi sortira po datum
