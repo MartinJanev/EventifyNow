@@ -4,6 +4,10 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { FirebaseApp } from '@angular/fire/app';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { provideRouter } from '@angular/router';
+import routeConfig from './routes';
+import { provideHttpClient } from '@angular/common/http';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 
 const firebaseConfig = {
     apiKey: "AIzaSyCVf3vZyj3CBXU8y3Sw_fLC1UceRsBZr1A",
@@ -16,15 +20,11 @@ const firebaseConfig = {
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    AngularFireAuthModule,
-    provideFirebaseApp(() => initializeApp(firebaseConfig)),
-    provideAuth(() => getAuth()),
+    provideRouter(routeConfig),
+    provideHttpClient(),
+    provideFirebaseApp(() => initializeApp(firebaseConfig)), 
+    provideAuth(() => getAuth()), 
     provideFirestore(() => getFirestore()),
+    { provide: FIREBASE_OPTIONS, useValue: firebaseConfig }
   ],
 };
-
-/*
-const firebaseApp: FirebaseApp = initializeApp(firebaseConfig);
-const db = getFirestore(firebaseApp);
-const auth = getAuth(firebaseApp);
-*/

@@ -29,9 +29,14 @@ export class AuthService {
     })
   }
 
-  register(email: string, password: string) {
+  register(email: string, password: string, username: string){ 
+    {
     this.fireauth.createUserWithEmailAndPassword(email, password)
       .then(() => {
+        this.firestore.collection('users').doc(username).set({
+          email: email,
+          username: username
+        });
         alert('Registration successful');
         this.router.navigate(['/login']);
       }, err=>{
@@ -39,6 +44,7 @@ export class AuthService {
         this.router.navigate(['/register']);
       })
   }
+}
 
   logout(){
     this.fireauth.signOut().then(()=>{

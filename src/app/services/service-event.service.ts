@@ -10,7 +10,7 @@ export class ServiceEventService {
 
   constructor(private firestore: Firestore) { }
 
-  isAdmin(): boolean { // Check if the user is an admin for deleting events in Details section - ne raboti
+  isAdmin(): boolean {
     const userEmail = 'admin';
     const userPassword = 'admin';
     return userEmail === 'admin' && userPassword === 'admin';
@@ -24,7 +24,6 @@ export class ServiceEventService {
 
   //Podolu e celata niza od nastani od koja se scrapaat podatocite
   protected eventDataList: Eventdata[] = [
-    // Add the following data to the eventDataList array - fix the data for each event
     {
       id: 0,
       name:'Che Trcame',

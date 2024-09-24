@@ -28,23 +28,23 @@
   <button class="add-event-close" (click)="closeAdd()">Close Editor</button>
   <form (ngSubmit)="addEvent()">
     <div class="name-file">
-      <input type="text" [(ngModel)]="event.name" name="name" placeholder="Event Name" required/>
-      <input type="file" (change)="onFileSelected(event.photo)" name="photo" placeholder="photo" required/>
+      <input type="text" [(ngModel)]="event.name" name="name" placeholder="Event Name" autocomplete="off" required/>
+      <input type="file" (change)="onFileSelected(event.photo)" name="photo" placeholder="photo" autocomplete="off" required/>
     </div>
     <div class="date-time">
       <div class="date-input">
         <label for="startDate">Start Date</label>
-        <input type="date" [(ngModel)]="event.startDate" name="startDate" required/>
+        <input type="date" [(ngModel)]="event.startDate" name="startDate" autocomplete="off" required/>
       </div>
       <div class="time-input">
         <label for="startTime">Start Time</label>
-        <input type="time" [(ngModel)]="event.startTime" name="startTime" required/>
+        <input type="time" [(ngModel)]="event.startTime" name="startTime" autocomplete="off" required/>
       </div>
     </div>
     <div class="geoLocation">
       <div class="geoCity">
         <label for="city">City</label>
-        <input type="text" [(ngModel)]="event.city" name="city" required/>
+        <input type="text" [(ngModel)]="event.city" name="city" autocomplete="off" required/>
       </div>
       <div class="geoCountry">
         <label for="country">Country</label>
@@ -299,12 +299,12 @@
     <div class="technical">
       <div class="organizer">
         <div class="organizer"><label for="organizer">Organizer</label>
-          <input type="text" [(ngModel)]="event.organizer" name="organizer" required/>
+          <input type="text" [(ngModel)]="event.organizer" name="organizer" autocomplete="off" required/>
         </div>
       </div>
       <div class="price">
           <label for="price">Price</label>
-          <input type="number" [(ngModel)]="event.price" name="price" placeholder="Price" required/>
+          <input type="number" [(ngModel)]="event.price" name="price" placeholder="Price" autocomplete="off" required/>
       </div>
     </div>
     <section id="main-container">

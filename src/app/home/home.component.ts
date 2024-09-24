@@ -84,7 +84,6 @@ export class HomeComponent {
   filteredDataList: Eventdata[] = [];
   eventService: ServiceEventService = inject(ServiceEventService);
   isAddEventVisible: boolean=false;
-  private firestore: AngularFirestore | undefined;
 
   constructor(private router: Router, private changeDetector: ChangeDetectorRef) 
 	{

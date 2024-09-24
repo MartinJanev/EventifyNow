@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Eventdata } from '../../interface/event-data';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -13,12 +12,4 @@ import { RouterModule } from '@angular/router';
 })
 export class EventDataComponent {
   @Input() eventData!: Eventdata;
-
-  constructor(private router: Router) {}
-
-  navigateEventWithDelay(id: Number) {
-    setTimeout(() => {
-      this.router.navigate(['/details', id]);
-    }, 300);
-  }
 }

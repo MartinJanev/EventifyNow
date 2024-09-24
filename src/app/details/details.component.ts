@@ -1,6 +1,6 @@
 import { Component,inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ServiceEventService } from '../services/service-event.service';
 import { Eventdata } from '../../interface/event-data';
 import { FooterComponent } from "../footer/footer.component";
@@ -8,7 +8,7 @@ import { FooterComponent } from "../footer/footer.component";
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [CommonModule, FooterComponent],
+  imports: [CommonModule, FooterComponent, RouterModule],
   templateUrl: './details.component.html',
   styleUrl: './details.component.css'
 })
@@ -65,15 +65,8 @@ export class DetailsComponent implements OnInit{
 
       setTimeout(() => {
         document.body.removeChild(customAlert);
-        this.delayBack();
       }, 1500); // Customize the duration as needed
     }
-  }
-
-  delayBack(){
-    setTimeout(() => {
-      this.router.navigate(['/']);
-    }, 500);  
   }
 
   attendEvent(){ //RSVP for event
@@ -100,7 +93,6 @@ export class DetailsComponent implements OnInit{
 
     setTimeout(() => {
       document.body.removeChild(customAlert);
-      this.delayBack();
     }, 1500); // Customize the duration as needed
   }
   

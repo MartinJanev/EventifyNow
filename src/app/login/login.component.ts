@@ -1,15 +1,14 @@
-import { Component,inject,OnInit } from '@angular/core';
+import { Component,inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule,Router } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { ServiceEventService } from '../services/service-event.service';
 import { AuthService } from '../services/auth.service';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDividerModule } from '@angular/material/divider';
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 
 @Component({
@@ -20,23 +19,18 @@ import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/
   styleUrl: './login.component.css'
 })
 
-export class LoginComponent implements OnInit {
+export class LoginComponent{
   provider: GoogleAuthProvider;
-  eventService = inject(ServiceEventService)
+  authService = inject(AuthService)
+  hide: boolean = true;
 
   constructor(private router: Router) {
     this.provider = new GoogleAuthProvider();
     this.provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
   }
 
-  auth: any;
-
-  ngOnInit(): void {
-    this.auth = getAuth();
-  }
-
   signInWithGoogle(): void { // Google Sign-in
-    signInWithPopup(this.auth, this.provider)
+    signInWithPopup(getAuth(), this.provider)
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access the Google API.
       const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -45,6 +39,7 @@ export class LoginComponent implements OnInit {
       const user = result.user;
       // IdP data available using getAdditionalUserInfo(result)
       // ...
+      this.router.navigate(['/home']);
     }).catch((error) => {
       // Handle Errors here.
       const errorCode = error.code;
@@ -55,12 +50,12 @@ export class LoginComponent implements OnInit {
       const credential = GoogleAuthProvider.credentialFromError(error);
       // ...
     });
+    
   }
 
   email : string = '';
   password : string = '';
 
-  //constructor(private auth:AuthService){}
 
   login() {
 
@@ -74,25 +69,6 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    //this.auth.login(this.email,this.password);
-    
-    this.email = '';
-    this.password = '';
+    this.authService.login(this.email,this.password);
   }
 }
-/*
-export class LoginComponent {
-
-  eventService = inject(ServiceEventService)
-
-    email: string = '';
-    password: string = '';
-  
-    constructor(private authService: AuthService) {}
-  
-    login() {
-      this.authService.login(this.email, this.password);
-    }
-}
-
-*/
