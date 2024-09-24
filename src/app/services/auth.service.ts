@@ -20,9 +20,14 @@ export class AuthService {
   }
 
   login(email: string, password: string){ //
-    this.fireauth.signInWithEmailAndPassword(email, password).then( ()=>{
+    this.fireauth.signInWithEmailAndPassword(email, password).then( (res)=>{
       localStorage.setItem('token','true');
-      this.router.navigate(['/home']);
+      if(res.user?.emailVerified == true){
+        this.router.navigate(['/home']);
+      }else{
+        alert('Please verify your email address');
+        this.router.navigate(['/verify-email']);
+      }
     }, err=>{
       alert(err.message);
       this.router.navigate(['/login']);
@@ -32,12 +37,13 @@ export class AuthService {
   register(email: string, password: string, username: string){ 
     {
     this.fireauth.createUserWithEmailAndPassword(email, password)
-      .then(() => {
+      .then((res) => {
         this.firestore.collection('users').doc(username).set({
           email: email,
           username: username
         });
         alert('Registration successful');
+        this.sendEmailVerification(res.user);
         this.router.navigate(['/login']);
       }, err=>{
         alert(err.message);
@@ -51,6 +57,24 @@ export class AuthService {
       localStorage.removeItem('token');
       this.router.navigate(['/login']);
     }, err=>{
+      alert(err.message);
+    })
+  }
+
+  forgotPassword(email: string){
+    this.fireauth.sendPasswordResetEmail(email).then(()=>{
+      alert('Password reset email sent');
+      this.router.navigate(['/verify-email']);
+    }, err=>{
+      alert(err.message);
+    })
+  }
+
+  sendEmailVerification(user:any){
+    user.sendEmailVerification().then((res:any)=>{
+      alert('Email verification sent');
+      this.router.navigate(['/verify-email']);
+    }, (err:any)=>{
       alert(err.message);
     })
   }
