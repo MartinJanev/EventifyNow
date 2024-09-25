@@ -9,18 +9,25 @@
 }
 
 body {
-  font-family:'Rubik', sans-serif; 
+  font-family: 'Rubik', sans-serif;
 }
+
 :root {
   --primary-color: #0042B6;
   --secondary-color: #0065D0;
   --accent-color: #bfe5ff;
-  --accent-btn-color:#0099ff;
-  --hover-color:#004c7f;
+  --accent-btn-color: #0099ff;
+  --hover-color: #004c7f;
   --shadow-color: #80ccff;
   --card-color: #F0EDFF;
   --card-text-color: #33298e;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

@@ -1,9 +1,9 @@
-import { Component,inject, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-import { ServiceEventService } from '../services/service-event.service';
-import { Eventdata } from '../../interface/event-data';
-import { FooterComponent } from "../footer/footer.component";
+import {Component, inject, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {ActivatedRoute, Router, RouterModule} from '@angular/router';
+import {ServiceEventService} from '../services/service-event.service';
+import {Eventdata} from '../../interface/event-data';
+import {FooterComponent} from "../footer/footer.component";
 
 @Component({
   selector: 'app-details',
@@ -12,35 +12,35 @@ import { FooterComponent } from "../footer/footer.component";
   templateUrl: './details.component.html',
   styleUrl: './details.component.css'
 })
-export class DetailsComponent implements OnInit{
-  route: ActivatedRoute=inject(ActivatedRoute);
-  eventService=inject(ServiceEventService);
+export class DetailsComponent implements OnInit {
+  route: ActivatedRoute = inject(ActivatedRoute);
+  eventService = inject(ServiceEventService);
   eventData: Eventdata | undefined;
-  router: Router=inject(Router);
+  router: Router = inject(Router);
+
+  constructor() {
+    const id = Number(this.route.snapshot.params['id']);
+    this.eventData = this.eventService.getEventById(id);
+  }
 
   ngOnInit() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   }
 
-  isAdmin(){ // Check if user is admin
+  isAdmin() { // Check if user is admin
 
     const adminControl = document.querySelector('.listing-delete') as HTMLElement;
     if (this.eventService.isAdmin()) {
       adminControl.style.display = 'flex';
       return true;
     } else {
-      adminControl.style.display="none";
+      adminControl.style.display = "none";
       return false;
     }
   }
 
-  constructor() {
-    const id=Number(this.route.snapshot.params['id']);
-    this.eventData=this.eventService.getEventById(id);
-  }
-
-  deleteEvent(){ // Delete event
+  deleteEvent() { // Delete event
     if (confirm('Are you sure you want to delete this event?')) {
       const customAlert = document.createElement('div');
       customAlert.style.opacity = '0';
@@ -69,7 +69,7 @@ export class DetailsComponent implements OnInit{
     }
   }
 
-  attendEvent(){ //RSVP for event
+  attendEvent() { //RSVP for event
     const customAlert = document.createElement('div');
     customAlert.style.opacity = '0';
     customAlert.style.transition = 'opacity 0.2s';
@@ -87,13 +87,13 @@ export class DetailsComponent implements OnInit{
     customAlert.style.boxShadow = '0 0 10px rgba(0,0,0,0.5)';
     customAlert.style.zIndex = '1000';
     customAlert.style.fontSize = '20px';
-    customAlert.style.color='#0042B6';
-    customAlert.style.fontWeight='bold';
+    customAlert.style.color = '#0042B6';
+    customAlert.style.fontWeight = 'bold';
     document.body.appendChild(customAlert);
 
     setTimeout(() => {
       document.body.removeChild(customAlert);
     }, 1500); // Customize the duration as needed
   }
-  
+
 }

@@ -21,7 +21,7 @@ body {
   min-height: 100vh;
 }
 
-h2{
+h2 {
   font-size: 3rem;
   color: var(--secondary-color);
   font-weight: 700;
@@ -34,13 +34,13 @@ a {
   text-decoration: none;
 }
 
-button[type='submit'],a {
+button[type='submit'], a {
   cursor: pointer;
 }
 
 a:focus,
 a:hover {
-text-decoration: underline;
+  text-decoration: underline;
 }
 
 p {
@@ -49,19 +49,19 @@ p {
   font-size: 1.2rem;
 }
 
-input,button {
-background-image: none;
-border: 0;
-color: inherit;
-font: inherit;
-margin: 0;
-outline: 0;
-padding: 0;
-transition: background-color 0.5s ease-in-out;
+input, button {
+  background-image: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  transition: background-color 0.5s ease-in-out;
 }
 
 
-::placeholder{
+::placeholder {
   color: var(--primary-color);
   font-weight: 700;
 }
@@ -76,14 +76,14 @@ transition: background-color 0.5s ease-in-out;
 
 .align {
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   display: flex;
   -webkit-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
   gap: 3rem;
   background-color: rgba(240, 240, 240, 1);
 }
@@ -143,14 +143,14 @@ transition: background-color 0.5s ease-in-out;
   margin: 0.5rem 0.875rem;
 }
 
-.form__field label{
+.form__field label {
   position: absolute;
 }
 
 .form__input {
--webkit-box-flex: 1;
+  -webkit-box-flex: 1;
   -ms-flex: 1;
-      flex: 1;
+  flex: 1;
 }
 
 
@@ -184,14 +184,15 @@ transition: background-color 0.5s ease-in-out;
   font-size: 1.2rem;
 }
 
-.hr{
+.hr {
   display: inline-flex;
   align-items: center;
   position: relative;
   justify-content: center;
   width: 100%;
 }
-hr{
+
+hr {
   margin: 1.5rem 0;
   height: 1px;
   width: 20rem;
@@ -199,7 +200,7 @@ hr{
   background-color: var(--secondary-color);
 }
 
-.hr span{
+.hr span {
   border-radius: 50%;
   border: 1px solid var(--secondary-color);
   font-size: 1.1rem;
@@ -211,7 +212,7 @@ hr{
   box-sizing: border-box;
 }
 
-#submit-button{
+#submit-button {
   padding: 1rem;
 }
 

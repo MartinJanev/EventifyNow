@@ -1,54 +1,55 @@
 <nav class="header-info">
   <div class="logo-module">
     <div class="logo-icon">
-      <a href="http://localhost:4200/" class="logo" aria-hidden="true">EventifyNow</a>
+      <a aria-hidden="true" class="logo" href="http://localhost:4200/">EventifyNow</a>
     </div>
-    </div>
-    <div class="list-module">
+  </div>
+  <div class="list-module">
     <!--<span id="user-email">{{ userEmail }}</span> -->
-    <a routerLink="/logout" (click)="logOut()">Log Out</a>
+    <a (click)="logOut()" routerLink="/logout">Log Out</a>
   </div>
 </nav>
 
 <div class="search-bar">
   <form class="search-form">
-    <input type="text" placeholder="Search event" #eventFilter/>
-    <input type="text" placeholder="City" #cityFilter/>
-    <button class="search-button" (click)="filterResults(eventFilter.value, cityFilter.value)">Search</button>
+    <input #eventFilter placeholder="Search event" type="text"/>
+    <input #cityFilter placeholder="City" type="text"/>
+    <button (click)="filterResults(eventFilter.value, cityFilter.value)" class="search-button">Search</button>
   </form>
 </div>
 
 <div class="add-event-section">
   <h2>Want to add an event?</h2>
   <p>Click the button below to add an event</p>
-  <button class="add-event-button" (click)="openAdd()">Add Event</button>
+  <button (click)="openAdd()" class="add-event-button">Add Event</button>
 </div>
 
 <div *ngIf="isAddEventVisible" class="add-event-div">
-  <button class="add-event-close" (click)="closeAdd()">Close Editor</button>
+  <button (click)="closeAdd()" class="add-event-close">Close Editor</button>
   <form (ngSubmit)="addEvent()">
     <div class="name-file">
-      <input type="text" [(ngModel)]="event.name" name="name" placeholder="Event Name" autocomplete="off" required/>
-      <input type="file" (change)="onFileSelected(event.photo)" name="photo" placeholder="photo" autocomplete="off" required/>
+      <input [(ngModel)]="event.name" autocomplete="off" name="name" placeholder="Event Name" required type="text"/>
+      <input (change)="onFileSelected(event.photo)" autocomplete="off" name="photo" placeholder="photo" required
+             type="file"/>
     </div>
     <div class="date-time">
       <div class="date-input">
         <label for="startDate">Start Date</label>
-        <input type="date" [(ngModel)]="event.startDate" name="startDate" autocomplete="off" required/>
+        <input [(ngModel)]="event.startDate" autocomplete="off" name="startDate" required type="date"/>
       </div>
       <div class="time-input">
         <label for="startTime">Start Time</label>
-        <input type="time" [(ngModel)]="event.startTime" name="startTime" autocomplete="off" required/>
+        <input [(ngModel)]="event.startTime" autocomplete="off" name="startTime" required type="time"/>
       </div>
     </div>
     <div class="geoLocation">
       <div class="geoCity">
         <label for="city">City</label>
-        <input type="text" [(ngModel)]="event.city" name="city" autocomplete="off" required/>
+        <input [(ngModel)]="event.city" autocomplete="off" name="city" required type="text"/>
       </div>
       <div class="geoCountry">
         <label for="country">Country</label>
-        <select id="country" name="country" class="form-control" required>
+        <select class="form-control" id="country" name="country" required>
           <option value="Afghanistan">Afghanistan</option>
           <option value="Åland Islands">Åland Islands</option>
           <option value="Albania">Albania</option>
@@ -251,7 +252,8 @@
           <option value="Solomon Islands">Solomon Islands</option>
           <option value="Somalia">Somalia</option>
           <option value="South Africa">South Africa</option>
-          <option value="South Georgia and The South Sandwich Islands">South Georgia and The South Sandwich Islands</option>
+          <option value="South Georgia and The South Sandwich Islands">South Georgia and The South Sandwich Islands
+          </option>
           <option value="Spain">Spain</option>
           <option value="Sri Lanka">Sri Lanka</option>
           <option value="Sudan">Sudan</option>
@@ -299,22 +301,22 @@
     <div class="technical">
       <div class="organizer">
         <div class="organizer"><label for="organizer">Organizer</label>
-          <input type="text" [(ngModel)]="event.organizer" name="organizer" autocomplete="off" required/>
+          <input [(ngModel)]="event.organizer" autocomplete="off" name="organizer" required type="text"/>
         </div>
       </div>
       <div class="price">
-          <label for="price">Price</label>
-          <input type="number" [(ngModel)]="event.price" name="price" placeholder="Price" autocomplete="off" required/>
+        <label for="price">Price</label>
+        <input [(ngModel)]="event.price" autocomplete="off" name="price" placeholder="Price" required type="number"/>
       </div>
     </div>
     <section id="main-container">
-      <div class="editor-container editor-container_document-editor" #editorContainerElement>
-        <div class="editor-container__menu-bar" #editorMenuBarElement></div>
-        <div class="editor-container__toolbar" #editorToolbarElement></div>
+      <div #editorContainerElement class="editor-container editor-container_document-editor">
+        <div #editorMenuBarElement class="editor-container__menu-bar"></div>
+        <div #editorToolbarElement class="editor-container__toolbar"></div>
         <div class="editor-container__editor-wrapper">
           <div class="editor-container__editor">
             <div #editorElement>
-              <ckeditor [editor]="Editor" [config]="config" (ready)="onReady($event)" *ngIf="isLayoutReady" />
+              <ckeditor (ready)="onReady($event)" *ngIf="isLayoutReady" [config]="config" [editor]="Editor"/>
             </div>
           </div>
         </div>
