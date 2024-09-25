@@ -39,11 +39,11 @@
 }
 
 .add-event-section button:focus {
-  background-color: var(--secondary-color); 
+  background-color: var(--secondary-color);
 }
 
 
-.add-event-close{
+.add-event-close {
   background-color: var(--secondary-color);
   border: 1px solid var(--secondary-color);
   font-weight: 700;
@@ -97,9 +97,10 @@
   border: 1px solid var(--secondary-color);
 }
 
-.add-event-div select{
+.add-event-div select {
   width: 98%;
 }
+
 @media (max-width: 768px) {
   .main-container {
     padding: 1rem;
@@ -148,36 +149,35 @@
 }
 
 
-
 /* Responsive Styles */
 @media (max-width: 768px) {
   .add-event-div {
-      padding: 1.5rem;
+    padding: 1.5rem;
   }
 
   .add-event-div form {
-      width: 90%;
+    width: 90%;
   }
 
   .add-event-section h2 {
-      font-size: 2rem;
+    font-size: 2rem;
   }
 
   .add-event-section p {
-      font-size: 1rem;
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .add-event-div form {
-      width: 100%;
+    width: 100%;
   }
 
   .add-event-section h2 {
-      font-size: 1.5rem;
+    font-size: 1.5rem;
   }
 
   .add-event-section p {
-      font-size: 0.9rem;
+    font-size: 0.9rem;
   }
 }

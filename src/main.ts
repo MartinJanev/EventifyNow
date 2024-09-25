@@ -1,12 +1,12 @@
-import { bootstrapApplication } from '@angular/platform-browser';
-import { AppComponent } from './app/app.component';
-import { provideRouter } from '@angular/router';
+import {bootstrapApplication} from '@angular/platform-browser';
+import {AppComponent} from './app/app.component';
+import {provideRouter} from '@angular/router';
 import routeConfig from './app/routes';
-import { appConfig } from './app/app.config';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {appConfig} from './app/app.config';
+import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
 
 bootstrapApplication(AppComponent, {
-  providers:[
+  providers: [
     provideRouter(routeConfig),
     appConfig.providers, provideAnimationsAsync('noop'),
   ]

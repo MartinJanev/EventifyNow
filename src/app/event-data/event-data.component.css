@@ -1,29 +1,32 @@
-.card{
+.card {
   text-decoration: none;
   cursor: unset;
-  height:max-content;
+  height: max-content;
 }
 
-.card section:hover{
+.card section:hover {
   background-color: var(--accent-color);
   transition: background-color 0.6s ease-in-out, scale 0.3s ease-in-out;
   scale: 0.9;
 }
 
-.card:visited{
+.card:visited {
   color: var(--primary-color);
 }
+
 .listing {
   background: var(--card-color);
   border-radius: 30px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
   padding-bottom: 30px;
 }
+
 .listing-heading {
   color: var(--primary-color);
   padding: 0.5rem 1rem;
   text-align: center;
 }
+
 .listing-photo {
   height: 250px;
   width: 100%;
@@ -33,21 +36,21 @@
 
 }
 
-.listing-p{
+.listing-p {
   margin: 0.5rem 0;
   display: flex;
   flex-direction: row;
-    justify-content: space-between;
+  justify-content: space-between;
 }
 
-.listing-date-time{
+.listing-date-time {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-.listing p{
+.listing p {
   font-size: 0.9rem;
   padding: 0 1rem;
   color: var(--card-text-color);
@@ -58,41 +61,41 @@
   content: url("/assets/calendar.svg") / "";
   padding-right: 0.2rem;
 }
+
 .listing-location::before {
   content: url("/assets/location-pin.svg") / "";
 }
 
-@media (min-width:399px) and (max-width: 799px) {
-  .listing-p{
-  justify-content: center;
-  gap: 8rem;
+@media (min-width: 399px) and (max-width: 799px) {
+  .listing-p {
+    justify-content: center;
+    gap: 8rem;
   }
 }
 
-@media (min-width: 1200px) and (max-width: 1500px)
-{
-  .listing-p p{
+@media (min-width: 1200px) and (max-width: 1500px) {
+  .listing-p p {
     font-size: 0.8rem;
   }
 
-  .listing-heading{
+  .listing-heading {
     font-size: 1.7rem;
   }
 }
 
-@media (max-width: 600px){
-  .listing-p{
+@media (max-width: 600px) {
+  .listing-p {
     transition: 1s ease-in-out;
     gap: 1rem;
   }
 }
 
-@media (max-width: 350px){
-  .listing-p{
+@media (max-width: 350px) {
+  .listing-p {
     flex-direction: column;
   }
 
-  .listing-p p{
+  .listing-p p {
     text-align: center;
   }
 }

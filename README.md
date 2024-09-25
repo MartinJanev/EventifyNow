@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## What is Eventify?
 
-EventifyNow is an Event Management System web application, that allows users to view and create their own events. Users can view events created by other users and can also register for the events. Technologies used in this project are Angular with TS and Firebase as SAAS. 
+EventifyNow is an Event Management System web application, that allows users to view and create their own events. Users can view events created by other users and can also register for the events. Technologies used in this project are Angular with TS and Firebase as SAAS.
 
 # Important commands about the project
 
