@@ -5,7 +5,7 @@ import {Eventdata} from '../../interface/event-data';
 import {ServiceEventService} from '../services/service-event.service';
 import {FooterComponent} from "../footer/footer.component";
 import {Router, RouterModule} from '@angular/router';
-import {FormsModule} from "@angular/forms";
+import {ReactiveFormsModule,FormControl, FormsModule, Validators} from "@angular/forms";
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import {
   AccessibilityHelp,
@@ -66,12 +66,13 @@ import {
   Underline,
   Undo
 } from 'ckeditor5';
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, EventDataComponent, FooterComponent, RouterModule, FormsModule, CKEditorModule],
+  imports: [CommonModule, EventDataComponent, FooterComponent, RouterModule, FormsModule, CKEditorModule,ReactiveFormsModule],
   templateUrl: './home.component.html',
   styleUrls: ['./header.css', './card.css', './add-event.css', './ckField.css'],
   encapsulation: ViewEncapsulation.None
@@ -80,7 +81,19 @@ export class HomeComponent {
   eventDataList: Eventdata[] = [];
   filteredDataList: Eventdata[] = [];
   eventService: ServiceEventService = inject(ServiceEventService);
+  authService: AuthService = inject(AuthService);
   isAddEventVisible: boolean = false;
+
+  name = new FormControl('', [Validators.required]);
+  photo = new FormControl('', [Validators.required]);
+  startDate = new FormControl('', [Validators.required]);
+  startTime = new FormControl('', [Validators.required]);
+  city = new FormControl('', [Validators.required]);
+  country = new FormControl('', [Validators.required]);
+  description = new FormControl('', [Validators.required]);
+  organizer = new FormControl('', [Validators.required]);
+  price = new FormControl('', [Validators.required]);
+
   event: Eventdata = { // Object to store the event data
     name: '',
     photo: '',
@@ -92,6 +105,7 @@ export class HomeComponent {
     organizer: '',
     price: 0
   };
+
   public isLayoutReady = false;
   public Editor = DecoupledEditor;
   public config: EditorConfig = {};
@@ -103,6 +117,14 @@ export class HomeComponent {
     this.filteredDataList = this.eventDataList;
   }
 
+  ngOnInit() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+  addEvent() { // Function to add an event - does not work now
+  }
+
   onFileSelected(photo: any) { // Function for image upload
     const file: File = photo.target.files[0];
     const reader = new FileReader();
@@ -112,15 +134,11 @@ export class HomeComponent {
     reader.readAsDataURL(file);
   }
 
-  logOut() { // Function to log out - need for AuthService implementation
-    localStorage.clear();
-    this.router.navigate(['/login']);
+  logOut() {
+    this.authService.logout();
   }
 
-  ngOnInit() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-  }
+
 
   openAdd() { // Function to open the add event section
     this.isAddEventVisible = true;
@@ -238,9 +256,8 @@ export class HomeComponent {
     }
   }
 
-  addEvent() { // Function to add an event - does not work now
-  }
-
+  // CKEditor functions
+  
   public ngAfterViewInit(): void { // Function to initialize the CKEditor
     this.config = {
       toolbar: {
