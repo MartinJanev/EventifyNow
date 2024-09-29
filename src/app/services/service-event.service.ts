@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
-import {collection, collectionData, Firestore} from '@angular/fire/firestore';
 import {Eventdata} from '../../interface/event-data';
-import {Observable} from 'rxjs';
+import {AngularFirestore} from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +10,7 @@ export class ServiceEventService {
   //Podolu e celata niza od nastani od koja se scrapaat podatocite
   protected eventDataList: Eventdata[] = [
     {
-      id: 0,
+      id: 'che-trcame',
       name: 'Che Trcame',
       city: 'Prilep',
       country: 'Macedonia',
@@ -23,7 +22,7 @@ export class ServiceEventService {
       price: 700
     },
     {
-      id: 1,
+      id: 'chupino-trail',
       name: ' Chupino Trail',
       city: 'Blatec, Vinica',
       country: 'Macedonia',
@@ -35,7 +34,7 @@ export class ServiceEventService {
       price: 1200
     },
     {
-      id: 2,
+      id: 'ed-sheeran-belgrade',
       name: 'Ed Sheeran in Belgrade',
       city: 'Belgrade',
       country: 'Serbia',
@@ -47,7 +46,7 @@ export class ServiceEventService {
       price: 5000,
     },
     {
-      id: 3,
+      id: 'ed-sheeran-sofia',
       name: 'Ed Sheeran in Sofia',
       city: 'Sofia',
       country: 'Bulgaria',
@@ -59,7 +58,7 @@ export class ServiceEventService {
       price: 6000,
     },
     {
-      id: 4,
+      id: 'ed-sheeran-zagreb',
       name: 'Ed Sheeran in Zagreb',
       city: 'Zagreb',
       country: 'Croatia',
@@ -71,7 +70,7 @@ export class ServiceEventService {
       price: 9000,
     },
     {
-      id: 5,
+      id: 'heat-macedonia',
       name: 'Heat Macedonia',
       city: 'Prespa',
       country: 'Macedonia',
@@ -83,7 +82,7 @@ export class ServiceEventService {
       price: 355,
     },
     {
-      id: 6,
+      id: 'shtipska-pastramajlijada',
       name: 'Shtipska Pastramajlijada',
       city: 'Shtip',
       country: 'Macedonia',
@@ -95,7 +94,7 @@ export class ServiceEventService {
       price: 0,
     },
     {
-      id: 7,
+      id: 'ohrid-calling',
       name: 'Ohrid Calling',
       city: 'Ohrid',
       country: 'Macedonia',
@@ -107,7 +106,7 @@ export class ServiceEventService {
       price: 4500,
     },
     {
-      id: 8,
+      id: 'skopje-jazz-festival',
       name: 'Skopje Jazz Festival',
       city: 'Skopje',
       country: 'Macedonia',
@@ -119,7 +118,7 @@ export class ServiceEventService {
       price: 400,
     },
     {
-      id: 9,
+      id: 'mandra-festival',
       name: 'Mandra Festival',
       city: 'Dojran',
       country: 'Macedonia',
@@ -131,7 +130,7 @@ export class ServiceEventService {
       price: 500,
     },
     {
-      id: 10,
+      id: 'vevcani-carnival',
       name: 'Vevcani Carnival',
       city: 'Vevcani',
       country: 'Macedonia',
@@ -143,7 +142,7 @@ export class ServiceEventService {
       price: 0,
     },
     {
-      id: 11,
+      id: 'trail-race-kopaonik',
       name: 'Trail Race Kopaonik',
       city: 'Kopaonik',
       country: 'Kosovo',
@@ -155,7 +154,7 @@ export class ServiceEventService {
       price: 2500,
     },
     {
-      id: 12,
+      id: 'trcaj-be',
       name: 'Trcaj Be',
       city: 'Bitola',
       country: 'Macedonia',
@@ -167,7 +166,7 @@ export class ServiceEventService {
       price: 1000,
     },
     {
-      id: 13,
+      id: 'kicevo-run',
       name: 'Kicevo Run',
       city: 'Kicevo',
       country: 'Macedonia',
@@ -179,7 +178,7 @@ export class ServiceEventService {
       price: 800,
     },
     {
-      id: 14,
+      id: 'wizz-air-skopje-marathon',
       name: 'Wizz Air Skopje Marathon',
       city: 'Skopje',
       country: 'Macedonia',
@@ -191,7 +190,7 @@ export class ServiceEventService {
       price: 1500,
     },
     {
-      id: 15,
+      id: 'obstacle-course-racing',
       name: 'Obstacle Course Racing',
       city: 'Skopje',
       country: 'Macedonia',
@@ -203,7 +202,7 @@ export class ServiceEventService {
       price: 2000,
     },
     {
-      id: 16,
+      id: 'paradise-music-festival',
       name: 'Paradise Music Festival ',
       photo: '/assets/paradise-festival.jpg',
       startDate: new Date('2024-07-26'),
@@ -215,7 +214,7 @@ export class ServiceEventService {
       price: 400,
     },
     {
-      id: 17,
+      id: 'lenny-kravitz-concert',
       name: 'Lenny Kravitz Concert',
       photo: '/assets/lenny-kravitz.jpg',
       startDate: new Date('2024-08-04'),
@@ -227,7 +226,7 @@ export class ServiceEventService {
       price: 3000,
     },
     {
-      id: 18,
+      id: 'krusevo-5km',
       name: 'Krusevo 5km',
       photo: '/assets/krusevo-5km.png',
       startDate: new Date('2024-09-07'),
@@ -238,22 +237,37 @@ export class ServiceEventService {
       organizer: 'NGO Center for Human Relations Krushevo',
       price: 800,
     }
-
   ];
 
-  constructor(private firestore: Firestore) {
+  constructor(private firestore: AngularFirestore) {
   }
 
   isAdmin(): boolean {
     const userEmail = 'admin';
     const userPassword = 'admin';
     return userEmail === 'admin' && userPassword === 'admin';
-
   }
 
-  getEvents(): Observable<Eventdata[]> { // Get all events from Firestore - ne uspeva da se prikazat
-    const eventCollection = collection(this.firestore, 'events');
-    return collectionData(eventCollection, {idField: 'id'});
+  addEvent(event: Eventdata) {
+    event.id = this.firestore.createId();
+    return this.firestore.collection('/events').add(event);
+  }
+
+  deleteEvent(event: Eventdata) {
+    return this.firestore.doc('/events/' + event.id).delete();
+  }
+
+  getEvents() { // Get all events from Firestore - ne uspeva da se prikazat
+    return this.firestore.collection('/events').snapshotChanges();
+  }
+
+  updateEvent(event: Eventdata) {
+    return this.firestore.doc('/events/' + event.id).update(event);
+
+    /*
+    this.deleteEvent(event);
+    this.addEvent(event);
+    */
   }
 
   getAllEvents(): Eventdata[] { // Get all events from the eventDataList array - gi sortira po datum
@@ -261,7 +275,7 @@ export class ServiceEventService {
     return this.eventDataList;
   }
 
-  getEventById(id: number): Eventdata | undefined {
+  getEventById(id: string): Eventdata | undefined {
     return this.eventDataList.find(event => event.id === id);
   }
 }
