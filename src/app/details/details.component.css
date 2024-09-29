@@ -190,41 +190,6 @@ li {
   font-size: 1.1rem;
 }
 
-.listing-delete {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  margin-top: 2rem;
-  background-color: #d9534f;
-  border: 2px solid #d9534f;
-  border-radius: 10px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.listing-delete:hover {
-  background-color: #c91f30;
-  border: 2px solid #c91f30;
-  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
-}
-
-.listing-delete button {
-  background-color: #d9534f;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  font-size: 1rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.listing-delete button:hover {
-  background-color: #c91f30;
-  transition: 0.3s ease-in-out;
-}
 
 .description {
   margin-top: 2rem;

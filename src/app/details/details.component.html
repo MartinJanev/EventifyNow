@@ -46,11 +46,6 @@
         </div>
       </section>
       <p class="description"> {{ eventData?.description }} </p>
-      <section *ngIf="isAdmin()" class="listing-delete">
-        <div>
-          <button (click)="deleteEvent()" id="b-delete" type="button">DELETE EVENT</button>
-        </div>
-      </section>
     </section>
   </section>
   <app-footer></app-footer>

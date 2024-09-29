@@ -1,5 +1,5 @@
 export interface Eventdata {
-  id?: number;
+  id: string;
   name: string;
   photo: string;
   startDate: Date;

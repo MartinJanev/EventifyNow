@@ -4,9 +4,9 @@ import {EventDataComponent} from '../event-data/event-data.component';
 import {Eventdata} from '../../interface/event-data';
 import {ServiceEventService} from '../services/service-event.service';
 import {FooterComponent} from "../footer/footer.component";
-import {Router, RouterModule} from '@angular/router';
-import {ReactiveFormsModule,FormControl, FormsModule, Validators} from "@angular/forms";
-import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
+import {RouterModule} from '@angular/router';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ChangeEvent, CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import {
   AccessibilityHelp,
   Alignment,
@@ -66,45 +66,47 @@ import {
   Underline,
   Undo
 } from 'ckeditor5';
-import { AuthService } from '../services/auth.service';
+import {AuthService} from '../services/auth.service';
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, EventDataComponent, FooterComponent, RouterModule, FormsModule, CKEditorModule,ReactiveFormsModule],
+  imports: [CommonModule, EventDataComponent, FooterComponent, RouterModule, FormsModule, CKEditorModule, ReactiveFormsModule],
   templateUrl: './home.component.html',
   styleUrls: ['./header.css', './card.css', './add-event.css', './ckField.css'],
   encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent {
-  eventDataList: Eventdata[] = [];
+  eventsList: Eventdata[] = [];
   filteredDataList: Eventdata[] = [];
   eventService: ServiceEventService = inject(ServiceEventService);
   authService: AuthService = inject(AuthService);
   isAddEventVisible: boolean = false;
 
-  name = new FormControl('', [Validators.required]);
-  photo = new FormControl('', [Validators.required]);
-  startDate = new FormControl('', [Validators.required]);
-  startTime = new FormControl('', [Validators.required]);
-  city = new FormControl('', [Validators.required]);
-  country = new FormControl('', [Validators.required]);
-  description = new FormControl('', [Validators.required]);
-  organizer = new FormControl('', [Validators.required]);
-  price = new FormControl('', [Validators.required]);
+eventObj: Eventdata={
+  id: '',
+  name: '',
+  photo: '',
+  startDate: new Date(),
+  startTime: '',
+  city: '',
+  country: '',
+  description: '',
+  organizer: '',
+  price: 0
+}
+  id: string = '';
+  name: string = '';
+  photo: string = '';
+  startDate: Date = new Date();
+  startTime: string = '';
+  city: string = '';
+  country: string = '';
+  description: string = '';
+  organizer: string = '';
+  price: number = 0;
 
-  event: Eventdata = { // Object to store the event data
-    name: '',
-    photo: '',
-    startDate: new Date(),
-    startTime: '',
-    city: '',
-    country: '',
-    description: '',
-    organizer: '',
-    price: 0
-  };
 
   public isLayoutReady = false;
   public Editor = DecoupledEditor;
@@ -112,24 +114,92 @@ export class HomeComponent {
   @ViewChild('editorToolbarElement') private editorToolbar!: ElementRef<HTMLDivElement>;
   @ViewChild('editorMenuBarElement') private editorMenuBar!: ElementRef<HTMLDivElement>;
 
-  constructor(private router: Router, private changeDetector: ChangeDetectorRef) {
-    this.eventDataList = this.eventService.getAllEvents();
-    this.filteredDataList = this.eventDataList;
+  constructor(
+    private changeDetector: ChangeDetectorRef,
+    private data: ServiceEventService
+  ) {
+    this.eventsList = this.eventService.getAllEvents();
+    this.filteredDataList = this.eventsList;
   }
 
-  ngOnInit() {
+  ngOnInit() : void{
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
+    this.getAllTheEvents();
   }
 
-  addEvent() { // Function to add an event - does not work now
+  getAllTheEvents() {
+    this.data.getEvents().subscribe(res => {
+
+      this.eventsList = res.map((e: any) => {
+        const data = e.payload.doc.data();
+        data.id = e.payload.doc.id;
+        return data
+      })
+    }, err => {
+      alert('Error fetching the events')
+    })
+  }
+
+  resetForm() {
+    this.id = '';
+    this.name = '';
+    this.photo = '';
+    this.startDate = new Date();
+    this.startTime = '';
+    this.city = '';
+    this.country = '';
+    this.description = '';
+    this.organizer = '';
+    this.price = 0;
+  }
+
+  addEvent() {
+    if (
+      this.name === '' ||
+      this.city === '' ||
+      this.country === '' ||
+      this.description === '' ||
+      this.organizer === '' ||
+      this.price < 0 ||
+      this.photo === ''
+    )
+    {
+      alert('Please fill all the fields');
+    }
+
+    this.eventObj.id = '';
+    this.eventObj.name = this.name;
+    this.eventObj.photo = this.photo;
+    this.eventObj.startDate = this.startDate;
+    this.eventObj.startTime = this.startTime;
+    this.eventObj.city = this.city;
+    this.eventObj.country = this.country;
+    this.eventObj.description = this.description;
+    this.eventObj.organizer = this.organizer;
+    this.eventObj.price = this.price;
+
+    this.data.addEvent(this.eventObj);
+    this.resetForm();
+  }
+
+  
+  updateEvents() {
+
+  }
+
+
+  public onChange({editor}: ChangeEvent) {
+    const data = editor.getData();
+
+    console.log(data);
   }
 
   onFileSelected(photo: any) { // Function for image upload
     const file: File = photo.target.files[0];
     const reader = new FileReader();
     reader.onload = (e: any) => {
-      this.event.photo = e.target.result;
+      this.photo = e.target.result;
     };
     reader.readAsDataURL(file);
   }
@@ -137,7 +207,6 @@ export class HomeComponent {
   logOut() {
     this.authService.logout();
   }
-
 
 
   openAdd() { // Function to open the add event section
@@ -165,20 +234,20 @@ export class HomeComponent {
     const existingAlert = document.querySelector('.custom-alert') as HTMLElement | null;
     const footer = document.querySelector('.footer') as HTMLElement | null;
     if (text && !city) {
-      this.filteredDataList = this.eventDataList.filter((eventData) =>
+      this.filteredDataList = this.eventsList.filter((eventData) =>
         eventData?.name.toLowerCase().includes(text.toLowerCase())
       );
     } else if (!text && city) {
-      this.filteredDataList = this.eventDataList.filter((eventData) =>
+      this.filteredDataList = this.eventsList.filter((eventData) =>
         eventData?.city.toLowerCase().includes(city.toLowerCase())
       );
     } else if (text && city) {
-      this.filteredDataList = this.eventDataList.filter((eventData) =>
+      this.filteredDataList = this.eventsList.filter((eventData) =>
         eventData?.name.toLowerCase().includes(text.toLowerCase()) &&
         eventData?.city.toLowerCase().includes(city.toLowerCase())
       );
     } else {
-      this.filteredDataList = this.eventDataList;
+      this.filteredDataList = this.eventsList;
     }
 
     if (this.filteredDataList.length === 0) {
@@ -257,7 +326,7 @@ export class HomeComponent {
   }
 
   // CKEditor functions
-  
+
   public ngAfterViewInit(): void { // Function to initialize the CKEditor
     this.config = {
       toolbar: {

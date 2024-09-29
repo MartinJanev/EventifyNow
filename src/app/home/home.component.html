@@ -28,28 +28,29 @@
   <button (click)="closeAdd()" class="add-event-close">Close Editor</button>
   <form (ngSubmit)="addEvent()">
     <div class="name-file">
-      <input [(ngModel)]="event.name" [formControl]="name" autocomplete="off" name="name" placeholder="Event Name" required type="text"/>
-      <input (change)="onFileSelected(event.photo)" [formControl]="photo" autocomplete="off" name="photo" placeholder="photo" required
+      <input [(ngModel)]="name" autocomplete="off" name="name" placeholder="Event Name" required type="text"/>
+      <input (change)="onFileSelected(photo)" [(ngModel)]="photo" autocomplete="off" name="photo"
+             placeholder="photo" required
              type="file"/>
     </div>
     <div class="date-time">
       <div class="date-input">
         <label for="startDate">Start Date</label>
-        <input [(ngModel)]="event.startDate" [formControl]="startDate" autocomplete="off" name="startDate" required type="date"/>
+        <input [(ngModel)]="startDate" autocomplete="off" name="startDate" required type="date"/>
       </div>
       <div class="time-input">
         <label for="startTime">Start Time</label>
-        <input [(ngModel)]="event.startTime" [formControl]="startTime" autocomplete="off" name="startTime" required type="time"/>
+        <input [(ngModel)]="startTime" autocomplete="off" name="startTime" required type="time"/>
       </div>
     </div>
     <div class="geoLocation">
       <div class="geoCity">
         <label for="city">City</label>
-        <input [(ngModel)]="event.city" [formControl]="city" autocomplete="off" name="city" required type="text"/>
+        <input [(ngModel)]="city" autocomplete="off" name="city" required type="text"/>
       </div>
       <div class="geoCountry">
         <label for="country">Country</label>
-        <select class="form-control" id="country" name="country" [formControl]="country" required>
+        <select [(ngModel)]="country" class="form-control" id="country" name="country" required>
           <option value="Afghanistan">Afghanistan</option>
           <option value="Åland Islands">Åland Islands</option>
           <option value="Albania">Albania</option>
@@ -179,7 +180,7 @@
           <option value="Lithuania">Lithuania</option>
           <option value="Luxembourg">Luxembourg</option>
           <option value="Macao">Macao</option>
-          <option selected value="Macedonia">Macedonia</option>
+          <option value="Macedonia">Macedonia</option>
           <option value="Madagascar">Madagascar</option>
           <option value="Malawi">Malawi</option>
           <option value="Malaysia">Malaysia</option>
@@ -301,12 +302,12 @@
     <div class="technical">
       <div class="organizer">
         <div class="organizer"><label for="organizer">Organizer</label>
-          <input [(ngModel)]="event.organizer" [formControl]="organizer" autocomplete="off" name="organizer" required type="text"/>
+          <input [(ngModel)]="organizer" autocomplete="off" name="organizer" required type="text"/>
         </div>
       </div>
       <div class="price">
         <label for="price">Price</label>
-        <input [(ngModel)]="event.price" autocomplete="off" [formControl]="price" name="price" placeholder="Price" required type="number"/>
+        <input [(ngModel)]="price" autocomplete="off" name="price" placeholder="Price" required type="number"/>
       </div>
     </div>
     <section id="main-container">
@@ -316,18 +317,21 @@
         <div class="editor-container__editor-wrapper">
           <div class="editor-container__editor">
             <div #editorElement>
-              <ckeditor (ready)="onReady($event)" *ngIf="isLayoutReady" [config]="config" [editor]="Editor" [formControl]="description"/>
+              <ckeditor (change)="onChange($event)" (ready)="onReady($event)" *ngIf="isLayoutReady" [config]="config"
+                        [editor]="Editor"/>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <button type="submit">Add Event</button>
+    <button (click)="addEvent()" type="submit">Add Event</button>
   </form>
 </div>
 
 <section class="results">
   <app-event-data *ngFor="let events of filteredDataList" [eventData]="events"></app-event-data>
 </section>
+
+
 
 <app-footer></app-footer>
