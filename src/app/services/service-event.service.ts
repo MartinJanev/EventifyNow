@@ -276,6 +276,16 @@ export class ServiceEventService {
   }
 
   getEventById(id: string): Eventdata | undefined {
-    return this.eventDataList.find(event => event.id === id);
+    let event = this.eventDataList.find(event => event.id === id);
+    
+    if (!event) {
+      this.firestore.doc<Eventdata>('/events/' + id).valueChanges().subscribe(firestoreEvent => {
+      if (firestoreEvent) {
+        event = firestoreEvent;
+      }
+      });
+    }
+    
+    return event;
   }
 }
