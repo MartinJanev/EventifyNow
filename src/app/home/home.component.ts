@@ -156,36 +156,66 @@ eventObj: Eventdata={
 
   addEvent() {
     if (
-      this.name === '' ||
-      this.city === '' ||
-      this.country === '' ||
-      this.description === '' ||
-      this.organizer === '' ||
-      this.price < 0 ||
-      this.photo === ''
+      this.name == '' ||
+      this.city == '' ||
+      this.country == '' ||
+      this.description == '' ||
+      this.organizer == '' ||
+      this.photo == ''
     )
     {
       alert('Please fill all the fields');
     }
+  
+      this.eventObj.id = '';
+      this.eventObj.name = this.name;
+      this.eventObj.photo = this.photo;
+      this.eventObj.startDate = this.startDate;
+      this.eventObj.startTime = this.startTime;
+      this.eventObj.city = this.city;
+      this.eventObj.country = this.country;
+      this.eventObj.description = this.description;
+      this.eventObj.organizer = this.organizer;
+      this.eventObj.price = this.price;
 
-    this.eventObj.id = '';
-    this.eventObj.name = this.name;
-    this.eventObj.photo = this.photo;
-    this.eventObj.startDate = this.startDate;
-    this.eventObj.startTime = this.startTime;
-    this.eventObj.city = this.city;
-    this.eventObj.country = this.country;
-    this.eventObj.description = this.description;
-    this.eventObj.organizer = this.organizer;
-    this.eventObj.price = this.price;
-
-    this.data.addEvent(this.eventObj);
-    this.resetForm();
+      this.data.addEvent(this.eventObj);
+      this.resetForm();
   }
 
   
   updateEvents() {
 
+  }
+
+  deleteEvent(event:Eventdata) { // Delete event
+    if (window.confirm('Are you sure you want to delete the event '+event.name+'?')) {
+      const customAlert = document.createElement('div');
+      customAlert.style.opacity = '0';
+      customAlert.style.transition = 'opacity 0.2s';
+      document.body.appendChild(customAlert);
+      requestAnimationFrame(() => {
+        customAlert.style.opacity = '1';
+      });
+      customAlert.innerText = 'You have successfully deleted this event!';
+      customAlert.style.position = 'fixed';
+      customAlert.style.top = '10%';
+      customAlert.style.left = '50%';
+      customAlert.style.transform = 'translate(-50%, -50%)';
+      customAlert.style.backgroundColor = '#fff';
+      customAlert.style.padding = '40px';
+      customAlert.style.boxShadow = '0 0 10px rgba(0,0,0,0.5)';
+      customAlert.style.zIndex = '1000';
+      customAlert.style.fontSize = '20px';
+      customAlert.style.color = '#0042B6';
+      customAlert.style.fontWeight = 'bold';
+      document.body.appendChild(customAlert);
+
+      this.data.deleteEvent(event)
+
+      setTimeout(() => {
+        document.body.removeChild(customAlert);
+      }, 2500); // Customize the duration as needed
+    }
   }
 
 

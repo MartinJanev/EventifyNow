@@ -1,7 +1,7 @@
 <nav class="header-info">
   <div class="logo-module">
     <div class="logo-icon">
-      <a aria-hidden="true" class="logo" href="http://localhost:4200/">EventifyNow</a>
+      <a aria-hidden="true" class="logo" [routerLink]="['/home']">EventifyNow</a>
     </div>
   </div>
   <div class="list-module">
@@ -330,6 +330,25 @@
 
 <section class="results">
   <app-event-data *ngFor="let events of filteredDataList" [eventData]="events"></app-event-data>
+  <div *ngFor="let event of eventsList">
+    <a [routerLink]="['/details',event.id]" class="card">
+      <section class="listing">
+        <img [src]="event.photo" alt="Image of {{event.name}}"
+             class="listing-photo">
+        <h2 class="listing-heading"> {{event.name }} </h2>
+        <div class="listing-p">
+          <p class="listing-location"> {{event.city }}, {{event.country }}</p>
+          <p class="listing-date"> {{ event.startDate| date:'EE, MMM dd' }} </p>
+        </div>
+      </section>
+    </a>
+    <section class="listing-delete">
+      <div>
+        <button (click)="deleteEvent(event)" id="b-delete" type="button">DELETE EVENT</button>
+      </div>
+    </section>
+    
+  </div>
 </section>
 
 
