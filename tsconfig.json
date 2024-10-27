@@ -22,7 +22,8 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "types": ["node","express-serve-static-core"],
   },
   "angularCompilerOptions": {
     "strictInjectionParameters": true,
