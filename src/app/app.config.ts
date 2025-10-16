@@ -1,28 +1,25 @@
-import {ApplicationConfig} from '@angular/core';
-import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
-import {getAuth, provideAuth} from '@angular/fire/auth';
-import {getFirestore, provideFirestore} from '@angular/fire/firestore';
-import {provideRouter} from '@angular/router';
-import routeConfig from './routes';
-import {provideHttpClient} from '@angular/common/http';
-import {FIREBASE_OPTIONS} from '@angular/fire/compat';
+import {
+  ApplicationConfig,
+  provideBrowserGlobalErrorListeners,
+  provideZoneChangeDetection,
+} from '@angular/core';
+import { provideRouter } from '@angular/router';
 
-const firebaseConfig = {
-  apiKey: "AIzaSyCVf3vZyj3CBXU8y3Sw_fLC1UceRsBZr1A",
-  authDomain: "event-management-system-99c7f.firebaseapp.com",
-  projectId: "event-management-system-99c7f",
-  storageBucket: "event-management-system-99c7f.appspot.com",
-  messagingSenderId: "194301657901",
-  appId: "1:194301657901:web:78d5d394fdd9079f7a09a4"
-};
+import { routes } from './app.routes';
+import { provideFirebaseApp } from '@angular/fire/app';
+import { initializeApp } from 'firebase/app';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+
+import { environment } from '../environments/environment';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routeConfig),
-    provideHttpClient(),
-    provideFirebaseApp(() => initializeApp(firebaseConfig)),
+    provideBrowserGlobalErrorListeners(),
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(routes),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
-    {provide: FIREBASE_OPTIONS, useValue: firebaseConfig}
   ],
 };

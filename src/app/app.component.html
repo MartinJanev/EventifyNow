@@ -1,1 +1,49 @@
-<router-outlet></router-outlet>
+<!-- Navigation Bar -->
+<nav class="navbar">
+  <div class="nav-content">
+    <a routerLink="/" class="nav-brand">EventifyNow</a>
+
+    <div class="nav-links">
+      <a routerLink="/events" class="nav-link">Events</a>
+
+      <ng-container *ngIf="currentUser$ | async; else signedOut">
+        <a routerLink="/events/new" class="nav-link">Create Event</a>
+        <button class="btn-signout" (click)="signOut()" type="button">
+          Sign Out
+        </button>
+      </ng-container>
+
+      <ng-template #signedOut>
+        <a routerLink="/auth/login" class="nav-link">Sign In</a>
+      </ng-template>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content Area - Routes render here -->
+<router-outlet />
+
+<!-- Global Footer Component -->
+<app-footer></app-footer>
+
+<!-- Toast Notifications -->
+<div class="toast-container">
+  <div
+    *ngFor="let toast of toasts$ | async"
+    class="toast"
+    [class.toast-success]="toast.type === 'success'"
+    [class.toast-error]="toast.type === 'error'"
+    [class.toast-info]="toast.type === 'info'"
+    role="alert"
+  >
+    <span class="toast-message">{{ toast.message }}</span>
+    <button
+      class="toast-close"
+      (click)="dismissToast(toast.id)"
+      type="button"
+      aria-label="Close"
+    >
+      ×
+    </button>
+  </div>
+</div>

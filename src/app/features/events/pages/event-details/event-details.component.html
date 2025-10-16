@@ -1,0 +1,134 @@
+<article *ngIf="!loading && eventData" class="event-details-page">
+  <section class="go-back">
+    <a [routerLink]="['/events']" class="back-button">
+      <svg class="bi bi-caret-left-fill" fill="currentColor" height="20" viewBox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg">
+        <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+      </svg>
+      <span>Back to Events</span>
+    </a>
+  </section>
+
+  <div class="event-container">
+    <section class="event-main">
+      <!-- Event Image as Card -->
+      <div class="event-image-card">
+        <img [src]="eventData.photo" [alt]="'Image of ' + eventData.name" class="event-image">
+      </div>
+
+      <!-- Event Title & Meta -->
+      <div class="event-header-info">
+        <h1 class="event-title">{{ eventData.name }}</h1>
+
+        <div class="event-meta-grid">
+          <div class="meta-item">
+            <span class="meta-icon">📍</span>
+            <div class="meta-content">
+              <span class="meta-label">Location</span>
+              <span class="meta-value">{{ eventData.city }}, {{ eventData.country }}</span>
+            </div>
+          </div>
+
+          <div class="meta-item">
+            <span class="meta-icon">📅</span>
+            <div class="meta-content">
+              <span class="meta-label">Date</span>
+              <span class="meta-value">{{ eventData.startDate | date: 'EEEE, dd MMMM, yyyy' }}</span>
+            </div>
+          </div>
+
+          <div class="meta-item">
+            <span class="meta-icon">🕐</span>
+            <div class="meta-content">
+              <span class="meta-label">Time</span>
+              <span class="meta-value">{{ eventData.startTime }}h</span>
+            </div>
+          </div>
+
+          <div class="meta-item">
+            <span class="meta-icon">💰</span>
+            <div class="meta-content">
+              <span class="meta-label">Price</span>
+              <span class="meta-value price-highlight">{{ eventData.price !== 0 ? eventData.price + ' MKD' : 'Free' }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Event Description -->
+      <div class="content-section">
+        <h2 class="section-title">About this event</h2>
+        <p class="event-description">{{ eventData.description }}</p>
+      </div>
+
+      <!-- Organizer Info -->
+      <div class="organizer-card">
+        <div class="organizer-icon">👤</div>
+        <div class="organizer-info">
+          <span class="organizer-label">Organized by</span>
+          <span class="organizer-name">{{ eventData.organizer }}</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sidebar with Actions -->
+    <aside class="event-sidebar">
+      <!-- Quick Info Card -->
+      <div class="quick-info-card">
+        <div class="date-display">
+          <div class="date-badge">
+            <span class="badge-month">{{ eventData.startDate | date: 'MMM' }}</span>
+            <span class="badge-day">{{ eventData.startDate | date: 'dd' }}</span>
+            <span class="badge-year">{{ eventData.startDate | date: 'yyyy' }}</span>
+          </div>
+        </div>
+
+        <div class="info-divider"></div>
+
+        <div class="event-time-info">
+          <div class="time-item">
+            <span class="time-icon">🕐</span>
+            <span class="time-text">{{ eventData.startTime }}h</span>
+          </div>
+          <div class="time-item">
+            <span class="time-icon">📍</span>
+            <span class="time-text">{{ eventData.city }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RSVP Card -->
+      <div class="rsvp-card">
+        <div class="rsvp-header">
+          <h3 class="rsvp-title">Attend this event</h3>
+          <p class="rsvp-price">{{ eventData.price !== 0 ? eventData.price + ' MKD' : 'Free Entry' }}</p>
+        </div>
+        <p class="rsvp-text">Join us and be part of this amazing experience!</p>
+        <button (click)="attendEvent()" class="rsvp-button" type="button">
+          <span class="btn-icon">✓</span>
+          <span>Register Now</span>
+        </button>
+      </div>
+
+      <!-- Share Card (Optional - for future) -->
+      <div class="share-card">
+        <h4 class="share-title">Share Event</h4>
+        <div class="share-buttons">
+          <button class="share-btn" title="Share" type="button">🔗</button>
+          <button class="share-btn" title="Favorite" type="button">⭐</button>
+          <button class="share-btn" title="Calendar" type="button">📅</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+</article>
+
+<app-loading-spinner *ngIf="loading" message="Loading event details..."></app-loading-spinner>
+
+<div *ngIf="!loading && !eventData" class="error-message">
+  <div class="error-content">
+    <span class="error-icon">🔍</span>
+    <h2>Event not found</h2>
+    <p>The event you're looking for doesn't exist or may have been removed.</p>
+    <a routerLink="/events" class="btn-back">Back to Events</a>
+  </div>
+</div>

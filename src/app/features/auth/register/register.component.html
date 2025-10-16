@@ -1,0 +1,76 @@
+<div class="auth-container">
+  <div class="authentication-text">
+    <h2>Sign Up</h2>
+  </div>
+
+  <div class="auth-form-container">
+    <form class="auth-form" (submit)="register()">
+      <div class="form-field">
+        <label for="username">Username</label>
+        <input
+          id="username"
+          [(ngModel)]="username"
+          name="username"
+          placeholder="Enter your username"
+          required
+          type="text"
+        />
+      </div>
+
+      <div class="form-field">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          [(ngModel)]="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+          type="email"
+        />
+      </div>
+
+      <div class="form-field">
+        <label for="password">Password</label>
+        <div class="password-input">
+          <input
+            id="password"
+            [(ngModel)]="password"
+            [type]="hide ? 'password' : 'text'"
+            name="password"
+            placeholder="Enter your password"
+            required
+          />
+          <button
+            type="button"
+            (click)="hide = !hide"
+            class="toggle-password">
+            {{ hide ? '👁️' : '👁️‍🗨️' }}
+          </button>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <button type="submit" class="submit-btn">
+          Sign Up
+        </button>
+      </div>
+    </form>
+
+    <p class="text-center">
+      Already a member? <a routerLink="/auth/login">Sign in</a>
+    </p>
+
+    <div class="divider">
+      <hr/>
+      <span>OR</span>
+    </div>
+
+    <button (click)="signInWithGoogle()" class="google-sign-in">
+      Continue with Google
+      <svg fill="currentColor" height="1.5rem" viewBox="0 0 24 24" width="1.5rem" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20.283 10.356h-8.327v3.451h4.792c-.446 2.193-2.313 3.453-4.792 3.453a5.27 5.27 0 0 1-5.279-5.28 5.27 5.27 0 0 1 5.279-5.279c1.259 0 2.397.447 3.29 1.178l2.6-2.599c-1.584-1.381-3.615-2.233-5.89-2.233a8.908 8.908 0 0 0-8.934 8.934 8.907 8.907 0 0 0 8.934 8.934c4.467 0 8.529-3.249 8.529-8.934 0-.528-.081-1.097-.202-1.625z"></path>
+      </svg>
+    </button>
+  </div>
+</div>
+
