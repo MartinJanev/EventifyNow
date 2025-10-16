@@ -1,11 +1,13 @@
-// Your web app's Firebase configuration
+// This file is auto-generated. Do not edit manually.
+// Run 'npm run set-env' to regenerate from .env file
+
 export const firebaseConfig = {
-  apiKey: 'AIzaSyDfxSHduWdNiDm4vlJB1Qgm9u_5X0uokrI',
-  authDomain: 'event-firebase-61319.firebaseapp.com',
-  projectId: 'event-firebase-61319',
-  storageBucket: 'event-firebase-61319.firebasestorage.app',
-  messagingSenderId: '280966770159',
-  appId: '1:280966770159:web:264dc99a32812a1e749a1a',
+  apiKey: 'your_api_key_here',
+  authDomain: 'your_project.firebaseapp.com',
+  projectId: 'your_project_id',
+  storageBucket: 'your_project.firebasestorage.app',
+  messagingSenderId: 'your_sender_id',
+  appId: 'your_app_id',
 };
 
 export const environment = {
