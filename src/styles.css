@@ -1,26 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
+/* You can add global styles to this file, and also import other style files */
 
+/* Global Styles */
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Rubik', sans-serif;
+  box-sizing: border-box;
   scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Rubik', sans-serif;
-}
-
-:root {
-  --primary-color: #0042B6;
-  --secondary-color: #0065D0;
-  --accent-color: #bfe5ff;
-  --accent-btn-color: #0099ff;
-  --hover-color: #004c7f;
-  --shadow-color: #80ccff;
-  --card-color: #F0EDFF;
-  --card-text-color: #33298e;
 }
 
 html, body {
@@ -28,6 +15,217 @@ html, body {
 }
 
 body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: 'Rubik', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f9fafb;
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+:root {
+  /* Primary Purple Gradient Theme */
+  --primary-color: #667eea;
+  --primary-dark: #5568d3;
+  --primary-light: #7c8ff0;
+  --secondary-color: #764ba2;
+  --secondary-dark: #653d8a;
+  --secondary-light: #8a5fb5;
+
+  /* Gradient Combinations */
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-primary-hover: linear-gradient(135deg, #5568d3 0%, #653d8a 100%);
+  --gradient-light: linear-gradient(135deg, #7c8ff0 0%, #8a5fb5 100%);
+
+  /* Accent Colors */
+  --accent-color: #e0d7f5;
+  --accent-light: #f0ebff;
+  --accent-btn-color: #8a5fb5;
+  --hover-color: #5568d3;
+  --shadow-color: rgba(102, 126, 234, 0.3);
+
+  /* Success & Status Colors */
+  --success-color: #10b981;
+  --warning-color: #fbbf24;
+  --error-color: #ef4444;
+  --info-color: #667eea;
+
+  /* Neutral Colors */
+  --card-color: #ffffff;
+  --card-bg-light: #f9fafb;
+  --card-text-color: #111827;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --border-color: #e5e7eb;
+  --border-light: #f0f0f0;
+
+  /* Background Colors */
+  --bg-primary: #f9fafb;
+  --bg-secondary: #f3f4f6;
+  --bg-white: #ffffff;
+
+  /* Spacing */
+  --content-padding: 0 8rem;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 2.5rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 5rem;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 50px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-primary: 0 4px 12px rgba(102, 126, 234, 0.3);
+  --shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.3);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* SVG Pattern */
+  --pattern-dots: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Utility Classes */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Card Utilities */
+.card {
+  background: var(--card-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  transition: all var(--transition-base);
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-primary);
+  border-color: var(--primary-light);
+}
+
+.card-hover-subtle:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Section Utilities */
+.section-padding {
+  padding: var(--spacing-3xl) var(--spacing-lg);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+  color: var(--text-primary);
+}
+
+/* Grid Utilities */
+.grid-auto-fit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+/* Gradient Background with Pattern */
+.gradient-section {
+  background: var(--gradient-primary);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.gradient-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--pattern-dots);
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.gradient-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Icon Container */
+.icon-container {
+  width: 56px;
+  height: 56px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-primary);
+}
+
+.icon-container svg {
+  width: 32px;
+  height: 32px;
+  stroke: white;
+  stroke-width: 2;
+}
+
+/* Text Utilities */
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Responsive Typography */
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 500;
+  margin-bottom: var(--spacing-md);
+  opacity: 0.95;
+}
+
+.hero-description {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.7;
+  opacity: 0.9;
 }

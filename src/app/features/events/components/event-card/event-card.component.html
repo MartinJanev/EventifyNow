@@ -1,0 +1,47 @@
+<article class="event-card">
+  <a [routerLink]="['/events', event.id]" class="card-link">
+    <div class="card-image-container">
+      <img [src]="event.photo" [alt]="'Image of ' + event.name" class="card-image">
+      <div class="card-price-badge" *ngIf="event.price !== undefined">
+        {{ event.price === 0 ? 'Free' : (event.price + ' MKD') }}
+      </div>
+    </div>
+
+    <div class="card-content">
+      <h3 class="card-title">{{ event.name }}</h3>
+
+      <div class="card-details">
+        <div class="detail-item">
+          <span class="detail-icon">📍</span>
+          <span class="detail-text">{{ event.city }}, {{ event.country }}</span>
+        </div>
+
+        <div class="detail-item">
+          <span class="detail-icon">📅</span>
+          <span class="detail-text">{{ event.startDate | date:'EE, MMM dd' }}</span>
+        </div>
+
+        <div class="detail-item">
+          <span class="detail-icon">🕐</span>
+          <span class="detail-text">{{ event.startTime }}</span>
+        </div>
+      </div>
+
+      <p class="card-description" *ngIf="event.description">
+        {{ event.description.length > 120 ? (event.description.substring(0, 120) + '...') : event.description }}
+      </p>
+
+      <div class="card-organizer" *ngIf="event.organizer">
+        <span class="organizer-label">Organized by:</span>
+        <span class="organizer-name">{{ event.organizer }}</span>
+      </div>
+    </div>
+  </a>
+
+  <div class="card-actions">
+    <button (click)="onDelete()" class="delete-button" type="button">
+      <span class="delete-icon">🗑️</span>
+      <span>Delete</span>
+    </button>
+  </div>
+</article>

@@ -1,0 +1,144 @@
+<div class="form-page">
+  <div class="form-container">
+    <h1>{{ isNewEvent ? 'Create New Event' : 'Edit Event' }}</h1>
+
+    <form (ngSubmit)="onSubmit()" class="event-form">
+      <div class="form-row">
+        <div class="form-field">
+          <label for="name">Event Name *</label>
+          <input
+            id="name"
+            [(ngModel)]="name"
+            name="name"
+            placeholder="Enter event name"
+            required
+            type="text"
+          />
+        </div>
+
+        <div class="form-field">
+          <label for="photo">Event Photo *</label>
+          <input
+            id="photo"
+            (change)="onFileSelected($event)"
+            name="photo"
+            required
+            type="file"
+            accept="image/*"
+          />
+          <small *ngIf="photo">Photo selected ✓</small>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label for="startDate">Start Date *</label>
+          <input
+            id="startDate"
+            [(ngModel)]="startDate"
+            name="startDate"
+            required
+            type="date"
+          />
+        </div>
+
+        <div class="form-field">
+          <label for="startTime">Start Time *</label>
+          <input
+            id="startTime"
+            [(ngModel)]="startTime"
+            name="startTime"
+            placeholder="e.g., 18:00"
+            required
+            type="time"
+          />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label for="city">City *</label>
+          <input
+            id="city"
+            [(ngModel)]="city"
+            name="city"
+            placeholder="Enter city"
+            required
+            type="text"
+          />
+        </div>
+
+        <div class="form-field">
+          <label for="country">Country *</label>
+          <select
+            id="country"
+            [(ngModel)]="country"
+            name="country"
+            required
+          >
+            <option value="">Select a country</option>
+            <option value="Macedonia">Macedonia</option>
+            <option value="Albania">Albania</option>
+            <option value="Kosovo">Kosovo</option>
+            <option value="Serbia">Serbia</option>
+            <option value="Bulgaria">Bulgaria</option>
+            <option value="Greece">Greece</option>
+            <option value="Croatia">Croatia</option>
+            <option value="United States">United States</option>
+            <option value="United Kingdom">United Kingdom</option>
+            <option value="Germany">Germany</option>
+            <option value="France">France</option>
+            <option value="Italy">Italy</option>
+            <option value="Spain">Spain</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label for="organizer">Organizer *</label>
+          <input
+            id="organizer"
+            [(ngModel)]="organizer"
+            name="organizer"
+            placeholder="Enter organizer name"
+            required
+            type="text"
+          />
+        </div>
+
+        <div class="form-field">
+          <label for="price">Price (in den) *</label>
+          <input
+            id="price"
+            [(ngModel)]="price"
+            name="price"
+            placeholder="0 for free events"
+            required
+            type="number"
+            min="0"
+          />
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="description">Description *</label>
+        <textarea
+          id="description"
+          [(ngModel)]="description"
+          name="description"
+          placeholder="Enter event description..."
+          required
+          rows="8"
+        ></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" (click)="goBack()" class="btn-cancel">Cancel</button>
+        <button type="submit" class="btn-submit" [disabled]="submitting">
+          {{ submitting ? 'Saving...' : (isNewEvent ? 'Create Event' : 'Update Event') }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
