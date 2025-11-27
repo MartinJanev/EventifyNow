@@ -51,6 +51,7 @@ __screenshots__/
 .DS_Store
 Thumbs.db
 llm-notes/
+docs/
 
 # Firebase
 .firebase
